@@ -23,6 +23,7 @@
 \usepackage{amsfonts}
 \usepackage{subcaption}
 \usepackage{physics}
+\usepackage{bigints}
 
 \title{Atomowa Fizyka, czyli każdego dla skrypt} % Title
 
@@ -35,7 +36,169 @@
     Zawiera tonę suchego humoru, błędów w kodzie, niekompilujących się 
     fragmentów, a co najważniejsze, jeszcze więcej błędów w tekście.\\
     Najważniejszy postulat: \textbf{wszystko brać z dystansem!!}
-	
-	
-	
+    
+\section{1}
+	Klasyczne równania ruchu 
+		$$
+		\left\{
+			\begin{array}{l}
+				m_1 \ddot{\vec{r}}_1 = - \vec{F} \\
+				m_2 \ddot{\vec{r}}_2 = \vec{F}
+			\end{array}	
+		\right.
+		$$
+	Wprowadzamy nowe zmienne
+		$$
+		\left\{
+			\begin{array}{l}
+				\vec{r} = \vec{r}_2-\vec{r}_1\\
+				\vec{R} = \frac{1}{m_1 + m_2}\left(\vec{r}_1 m_1 + \vec{r}_2 m_2\right)
+			\end{array}
+		\right.
+		$$
+	przekształcamy ze względu na $\vec{r}_1,\,\vec{r}_2$
+		$$
+		\left\{
+			\begin{array}{l}
+				\vec{r}_1 = \vec{R} - \frac{m_2}{m_1+m_2}\vec{r} = \vec{R} - \frac{\mu}{m_1}\vec{r}\\
+				\vec{r}_2 = \vec{R} + \frac{m_1}{m_1+m_2}\vec{r} = \vec{R} + \frac{\mu}{m_2}\vec{r}
+			\end{array}
+		\right.
+		$$
+	różniczkując dwukrotnie
+		$$
+		\left\{
+			\begin{array}{l}
+				\ddot{\vec{r}}_1 = \ddot{\vec{R}} -  \frac{\mu}{m_1}\ddot{\vec{r}}\\
+				\ddot{\vec{r}}_2 = \ddot{\vec{R}}  + \frac{\mu}{m_2}\ddot{\vec{r}}
+			\end{array}
+		\right.
+		$$
+	otrzymane wektory wprowadzamy do początkowego układu
+		$$
+		\left\{
+			\begin{array}{l}
+				m_1\left( \ddot{\vec{R}} -  \frac{\mu}{m_1}\ddot{\vec{r}} \right)= - \vec{F} \\
+				m_2\left(\ddot{\vec{R}}  + \frac{\mu}{m_2}\ddot{\vec{r}} \right)= \vec{F}
+			\end{array}	
+		\right.
+		$$
+	w pierwszym kroku dodajemy do siebie równania, dzięki czemu otrzymujemy
+		$$
+			m_1\ddot{\vec{R}} + m_2\ddot{\vec{R}} = \vec{0}
+		$$
+	czyli
+		$$
+			(m_1+m_2)\ddot{\vec{R}} = \vec{0}
+		$$
+	aby otrzymać drugie równanie, podzielmy równanie uprośćmy równania przez masy $m_1$ oraz $m_2$, a następnie odejmijmy je od siebie
+		$$
+			\ddot{\vec{R}} - \frac{\mu}{m_1}\ddot{\vec{r}} - \ddot{\vec{R}} - \frac{\mu}{m_2}\ddot{\vec{r}} = -\frac{\vec{F}}{m_1} - \frac{\vec{F}}{m_2}
+		$$
+	co prowadzi do
+		$$
+		\frac{m_1+m_2}{m_1 m_2}\mu \ddot{\vec{r}} = \frac{1}{\mu} \vec{F}
+		$$
+	stąd otrzymujemy
+		$$
+		\mu\ddot{\vec{r}} = \vec{F}
+		$$
+	co kończy wyprowadzenie równań ruchu.\\
+	Musimy udowodnić, że wielkości
+		$$
+		\begin{array}{l}
+			\vec{p}_{tot} = \vec{p}_1+\vec{p}_2=(m_1+m_2)\vec{v}_{CM}\\\\
+			E_{tot} = \frac{m_1 v_1^2}{2}+\frac{m_2 v_2^2}{2} + V(r) = (m_1+m_2)\frac{v_{CM}^2}{2}+\frac{\mu v^2}{2} + V(r)\\\\
+			\vec{L}_{tot} = \vec{r}_1\times\vec{p}_1 + \vec{r}_2\times\vec{p}_2 =  (m_1+m_2)\vec{R}\times\vec{v}_{CM}+\mu\vec{r}\times\vec{v}
+		\end{array}
+		$$
+	gdzie $\vec{v}=\dot{\vec{r}},\quad \vec{v}_{CM} = \dot{\vec{R}}$, są
+	całkami ruchu, czyli $\frac{d f}{dt}=0$. Dla momentu pędu
+	$$
+	\begin{array}{lll}
+		\frac{d}{dt}\vec{L}_{tot} &=& \underbrace{\dot{\vec{r}}_1 \times\vec{p}_1}_{=0} + \vec{r}_1\times\dot{\vec{p}}_1 + \underbrace{\dot{\vec{r}}_2 \times\vec{p}_2}_{=0} + \vec{r}_2\times\dot{\vec{p}}_2 = \\\\
+		&=&\bigg\vert \dot{\vec{p}}_1 = -\vec{F}, \quad \dot{\vec{p}}_2 = \vec{F} \bigg\vert = \vec{r}_1\times(-\vec{F})+\vec{r}_2\times\vec{F} = (\vec{r}_2-\vec{r}_1)\times \vec{F} = 0
+	\end{array}
+	$$
+	Dla energi całkowitej, zapisanej za pomocą pędów 
+	$$
+	\begin{array}{lll}
+		\frac{d}{dt}E_{tot} & = & \frac{\vec{p}_1\circ\ddot{\vec{p}}_1}{m_1} + \frac{\vec{p}_2\circ\ddot{\vec{p}}_2}{m_2} + \dot{V}(r) =
+		\bigg\vert \dot{\vec{p}}_1 = -\vec{F}, \quad \dot{\vec{p}}_2 = \vec{F},\quad dV = \grad{V(r)}\circ d\vec{r} \bigg\vert =\\\\
+		&=& \vec{F}\circ(\vec{v}_2-\vec{v}_1) + \grad{V(r)}\circ\dot{\vec{r}} = \vec{F}\circ \vec{v} + \vec{v}\circ(-\vec{F}) = 0
+	\end{array}
+	$$
+	Oraz najprostsze dla pędu całkowitego
+	$$
+	\dot{\vec{p}}_{tot} = \dot{\vec{p}}_1 + \dot{\vec{p}}_2 = -\vec{F}+\vec{F} = 0
+	$$
+\section{3}
+	We wstępie nie mamy podaneg wektora $\vec{S}_p$, zatem chyba trzeba go wyprowadzić, więc
+	$$
+	\vec{S}_p = \frac{1}{\mu_0}\vec{E}_p \times \vec{B}_p = \frac{1}{\mu_0 c}\vec{E}_p \cross(\hat{R}\cross\vec{E}_p)
+	$$
+	ciągnąc równość dalej
+	$$
+	= \frac{1}{\mu_0 c}\left(\hat{R}E_p^2 - \vec{E}_p\underbrace{(\hat{R}\circ\vec{E}_p)}_{=0}\right) = \bigg\vert E_p^2 = \frac{k^2 q^2}{c^4 R^2} \left[\hat{R}(\hat{R}\times \vec{a})\right]^2 = \frac{k^2 q^2}{c^4 R^2} |\hat{R}\times\vec{a}|^2\bigg\vert = \frac{1}{\mu_0 c}\frac{k^2q^2}{c^4 R^2}\left[a^2-(\hat{R}\circ\vec{a})^2\right]\hat{R}
+	$$
+	co kończy wyprowadzenie $\vec{S}_p$. Wtedy obliczamy $P$
+	$$
+	\begin{array}{lll}
+		P &=& \bigointsss\limits_\Sigma \vec{S}_p(\vec{r},t )d\vec{\sigma} = \frac{A}{R^2}\oint\limits_\Sigma\left[a^2 - (\hat{R}\circ\vec{a})^2\right]\hat{R}\hat{R}d\sigma = \bigg\vert d\sigma = R^2 \underbrace{\sin\theta d\theta d\varphi}_{d\Omega} \bigg\vert =\\\\\\
+		&=& \frac{A}{R^2}R^2 a^2 \bigintss\limits_{4\pi} d\Omega -\frac{A}{R^2}R^2 \underbrace{\int\limits_{4\pi}(\hat{R}\circ\vec{a})^2d\Omega}_I
+	\end{array}
+	$$
+	Zajmujemy się całką $I$, przyjmując, że $\vec{a} || OZ\implies \vec{a}\circ\hat{R} = a\cos\theta$, dostajemy
+	$$
+		I=\int\limits_\Omega\, a^2\cos^2\theta\sin\theta d\theta d\varphi = \bigg\vert z = \cos\theta\implies dz = -\sin\theta d\theta\bigg\vert = 2\pi a^2 \int\limits_{-1}^1 z^2 dz = \frac{4\pi a^2}{3}
+	$$
+	biorąc wszystko razem
+	$$
+	P = 4\pi A a^2 - \frac{4\pi a^2 A}{3} = \frac{8\pi}{3}a^2 A = \frac{8\pi}{3}a^2 \frac{k^2 q^2}{c^5 \mu_0} = \frac{8\pi}{3}a^2 \frac{1}{4\pi\varepsilon_0\mu_0}\frac{kq^2}{c^5} =
+	= \frac{2}{3}a^2 \frac{kq^2}{c^3} = \bigg\vert \alpha = \frac{ke^2}{\hbar c}\bigg\vert = \frac{2}{3}\alpha\frac{(q/e)^2\hbar}{c^2}a^2
+	$$
+	\subsection{Komentarze}
+		Użyte wzory:
+		$$
+		\vec{a}\times(\vec{b}\times\vec{c}) = \vec{b} (\vec{a}\circ\vec{c}) - \vec{c}(\vec{a}\circ\vec{b})
+		$$
+		oraz 
+		$$
+		|\vec{a} \times\vec{b}|^2 = a^2b^2 - (\vec{a}\circ\vec{b})^2
+		$$
+\section{5}
+		Musimy dokonać zamiany zmiennych w $\hat{H}$ na zmienne środka masy. Obliczając, jak poprzednio
+		$$
+		\left\{
+			\begin{array}{l}
+				\vec{r} = \vec{r}_2-\vec{r}_1\\
+				\vec{R} = \frac{1}{m_1 + m_2}\left(\vec{r}_1 m_1 + \vec{r}_2 m_2\right)
+			\end{array}
+		\right.
+	$$
+
+		wtedy prawdziwa jest następująca reguła łańcuchowa 
+		$$
+		\left\{
+			\begin{array}{l}
+				\nabla_1 = -\nabla_r + \frac{\mu}{m_2}\nabla_R \\
+				\nabla_2 = \nabla_r + \frac{\mu}{m_1}\nabla_R 
+			\end{array}
+		\right.
+		$$
+		wprowadzając do Hamiltonianu
+		$$
+		\begin{array}{lll}
+			\hat{H}_{tot} &=& -\frac{\hbar^2}{2m_2}\nabla_2^2 - \frac{\hbar^2}{2m_1}\nabla_1^2 + V(r) = -\frac{\hbar^2}{2m_2}\left[\nabla_r^2+\left(\frac{\mu}{m_1}\right)^2\nabla_R^2
+			+\frac{2\mu}{m_1}\nabla_R\nabla_r \right] -\frac{\hbar^2}{2m_1}\left[\nabla_r^2+\left(\frac{\mu}{m_2}\right)^2\nabla_R^2
+			-\frac{2\mu}{m_2}\nabla_R\nabla_r \right] + \\
+			&+& V(r) = -\frac{\hbar^2}{2\mu}\nabla_r^2-\frac{\hbar^2}{2M}\nabla_R^2 + V(r) = \frac{\hat{\vec{p}}_{CM}^2}{2M} + \underbrace{\frac{\hat{\vec{p}}^2}{2\mu} +  V(r)}_{\hat{H}}
+		\end{array}
+		$$
+		co kończy pierwszą część.\\
+		Poprawka liniowa do masy zredukowanej
+		$$
+			\mu = \frac{m_em_p}{m_e+m_p} \cdot \frac{\frac{1}{m_p}}{\frac{1}{m_p}} = \frac{m_e}{1+\frac{m_e}{m_p}} \approx m_e \left(1-\frac{m_e}{m_p}\right)
+		$$
+		wiemy, że $m_e \sim 10^{-31},\quad m_p \sim 10^{-27}$ [kg], zatem $m_e/m_p ~\sim 10^{-4}$.
 \end{document}
