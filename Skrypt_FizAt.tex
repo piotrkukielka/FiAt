@@ -24,6 +24,7 @@
 \usepackage{subcaption}
 \usepackage{physics}
 \usepackage{bigints}
+\usepackage{mathtools} %adds abs
 
 \title{Atomowa Fizyka, czyli każdego dla skrypt} % Title
 
@@ -37,7 +38,7 @@
     fragmentów, a co najważniejsze, jeszcze więcej błędów w tekście.\\
     Najważniejszy postulat: \textbf{wszystko brać z dystansem!!}
     
-\section{1}
+\section{Wykrzyknik 1}\label{sec:1}
 	Klasyczne równania ruchu 
 		$$
 		\left\{
@@ -132,8 +133,45 @@
 	$$
 	\dot{\vec{p}}_{tot} = \dot{\vec{p}}_1 + \dot{\vec{p}}_2 = -\vec{F}+\vec{F} = 0
 	$$
-\section{3}
-	We wstępie nie mamy podaneg wektora $\vec{S}_p$, zatem chyba trzeba go wyprowadzić, więc
+
+\section{Wykrzyknik 2}
+Wektor Rungego-Lentza
+\[
+  \vec{A} = \vec{p} \times \vec{L} + \mu D \hat{r}
+\]
+gdzie $D = kq_1q_2$ oraz $\vec{p} = \mu \dot{\vec{r}}$.
+Musimy pokazać, że $\dot{\vec{A}} = 0$. Pamiętając z paragrafu~\ref{sec:1}, że
+$\dot{\vec{L}} = 0$ bierzemy pochodną iloczynu:
+\[
+  \dot{\vec{A}} = \dot{\vec{p}} \times \vec{L} + \mu D \dot{\hat{r}} = \mu
+  \ddot{\vec{r}} \times \vec{L} + \mu D \dot{\hat{r}} = \vec{F} \times \vec{L} +
+  \mu D \dot{\hat{r}}
+\]
+Wiemy, że $V = \frac{D}{r}$ więc $\vec{F} = -grad\vec{V} =
+\frac{-D}{r^2}\hat{r}$. Kontynuując:
+\[
+  \dot{\vec{A}} = \frac{D}{r^2}\hat{r} \times \left( \mu \vec{r} \times
+  \dot{\vec{r}} \right) + \mu D \dot{\hat{r}} = \mu D\hat{r} \times \left(
+  \hat{r} \times
+  \dot{\hat{r}} \right) + \mu D \dot{\hat{r}} = \mu D \left[\underbrace{\left( \hat{r} \circ
+    \dot{\hat{r}} \right)}_{=0} \hat{r} - \underbrace{\left( \hat{r} \circ \hat{r}
+  \right)}_{=1}
+\dot{\hat{r}} + \dot{\hat{r}} \right] = \vec{0}
+\]
+
+\subsection{Komentarze}
+Na wykładzie wektor Rungego-Lentza jest od razu pomnożony przez $\mu$.
+
+Użyte wzory:
+\[
+		\vec{a}\times(\vec{b}\times\vec{c}) = \vec{b} (\vec{a}\circ\vec{c}) -
+    \vec{c}(\vec{a}\circ\vec{b})
+\]
+oraz należy pamiętać, że $\vec{r} = r\hat{r}$, stąd $\dot{\vec{r}} =
+\dot{r}\hat{r} + r\dot{\hat{r}}$.
+
+\section{Wykrzyknik 3}
+	We wstępie nie mamy podanego wektora $\vec{S}_p$, zatem chyba trzeba go wyprowadzić, więc
 	$$
 	\vec{S}_p = \frac{1}{\mu_0}\vec{E}_p \times \vec{B}_p = \frac{1}{\mu_0 c}\vec{E}_p \cross(\hat{R}\cross\vec{E}_p)
 	$$
@@ -166,7 +204,23 @@
 		$$
 		|\vec{a} \times\vec{b}|^2 = a^2b^2 - (\vec{a}\circ\vec{b})^2
 		$$
-\section{5}
+
+\section{Wykrzyknik 4}
+Postulaty modelu Bohra:
+\begin{enumerate}
+  \item istnieją stacjonarne orbity - znajdujący się na nich elektron nie
+    wypromieniowuje energii elektromagnetycznej.
+  \item elektron emituje foton przy zmianie orbity $h\nu= \abs*{E_f - E_i}$
+  \item moment pędu przyjmuje dyskretne wartości $ L = n\hbar$
+\end{enumerate}
+Z trzeciego postulatu otrzymujemy $E_n = \frac{-1}{2n^2}E_0$, gdzie $E_0 =
+\frac{k^2 e^4 m_e}{\hbar}$
+i jest to praktycznie jedyny poprawny wynik w tym modelu. 
+
+Całej reszty nie robiliśmy. (?)
+
+
+\section{Wykrzyknik 5}
 		Musimy dokonać zamiany zmiennych w $\hat{H}$ na zmienne środka masy. Obliczając, jak poprzednio
 		$$
 		\left\{
@@ -201,4 +255,70 @@
 			\mu = \frac{m_em_p}{m_e+m_p} \cdot \frac{\frac{1}{m_p}}{\frac{1}{m_p}} = \frac{m_e}{1+\frac{m_e}{m_p}} \approx m_e \left(1-\frac{m_e}{m_p}\right)
 		$$
 		wiemy, że $m_e \sim 10^{-31},\quad m_p \sim 10^{-27}$ [kg], zatem $m_e/m_p ~\sim 10^{-4}$.
+
+\section{Wykrzyknik 6}
+Wychodząc z równania Schrodingera:
+\[
+  \hat{H} \phi(\vec{r})  = E \phi (\vec{r})
+\]
+\[
+  \frac{-\hbar^2}{2m}\nabla^2 \phi (\vec{r}) - \frac{Zke^2}{r}\phi (\vec{r}) = E
+\phi (\vec{r})
+\]
+Mnożymy obustronnie przez $\frac{-2m}{\hbar^2}$, rozpisujemy laplasjan oraz
+wprowadzamy nowe oznaczenia by uniknąć przepisywania stałych $\beta^2 =
+\frac{-2m}{\hbar^2}E$, $U(r) = \frac{2m}{\hbar^2}\frac{Zke^2}{r}$ oraz
+$\hat{O}_r = \frac{\partial}{\partial r}r^2 \frac{\partial}{\partial r}$.
+Następnie przenosimy całość na jedną stronę.
+
+\[
+  \left[ \frac{1}{r^2} \hat{O}_r - \frac{1}{\hbar^2 r^2}\hat{\vec{L}}^2 + U(r) -
+\beta^2 \right] \phi (\vec{r}) = 0
+\]
+Mnożymy przez $r^2$
+\[
+  \left[ \hat{O}_r - \frac{1}{\hbar^2}\hat{\vec{L}}^2 + r^2U(r) -
+r^2 \beta^2 \right] \phi (\vec{r}) = 0
+\]
+Korzystamy z możliwości rozdzielenia funkcji falowej $\phi (\vec{r}) =
+R(\vec{r}) Y(\theta, \phi) = R Y$
+\[
+  Y\left( \hat{O}_r + r^2U(r) -
+  r^2 \beta^2 \right)R - \frac{R}{\hbar^2}\hat{\vec{L}}^2Y = 0
+\]
+Mnożymy $\frac{1}{RY}$
+\[
+  \underbracket{\frac{1}{R}\left( \hat{O}_r + r^2U(r) -
+    r^2 \beta^2 \right)R}_{=-\lambda} - \underbracket{\frac{1}{\hbar^2
+Y}\hat{\vec{L}}^2Y}_{=\lambda} = 0
+\]
+Stąd 
+\[
+  \frac{1}{\hbar^2}\hat{\vec{L}} = \lambda Y \qquad \Rightarrow \qquad \lambda = l(l+1)
+\]
+a dalej
+\[
+  \left(\frac{1}{r^2}\hat{O}_r + U(r) - \beta^2 + l(l+1)\frac{1}{r^2} \right)R = 0
+\]
+po rozpisaniu otrzymujemy
+\[
+  R'' + \frac{2}{r}R' + \frac{2m}{\hbar^2}\left(\frac{Zke^2}{r} -
+  \frac{l(l+1)}{r} \frac{h^2}{2mr} + E \right) R = 0
+\]
+
+\section{Wykrzyknik 8}
+$E_n = \frac{-Z^2}{2n^2}E_0$ zależy tylko od jednej liczby kwantowej $n=1, 2,
+...$. Zatem wartości własne $\hat{H}$ są zdegenerowane.
+Można policzyć stopień tej degeneracji:
+\[
+  \sum^{n-1}_{l=0} (2l+1) 
+\]
+Co można policzyć ze wzoru na sumę ciągu arytmetycznego (pamiętając, że
+startujemy na $l=0$ więc ilość wyrazów to $n$.
+\[
+  \sum^{n-1}_{l=0} (2l+1) = \frac{1+2(n-1) + 1}{2}n = n^2
+\]
+
+\section{Wykrzyknik 10}
+nie byo?
 \end{document}

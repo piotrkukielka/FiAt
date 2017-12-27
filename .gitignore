@@ -1,5 +1,6 @@
 ### Own
 *.pdf
+*.un~
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
