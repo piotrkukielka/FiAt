@@ -305,6 +305,36 @@ po rozpisaniu otrzymujemy
   R'' + \frac{2}{r}R' + \frac{2m}{\hbar^2}\left(\frac{Zke^2}{r} -
   \frac{l(l+1)}{r} \frac{h^2}{2mr} + E \right) R = 0
 \]
+\section{Wykrzyknik 7}
+Trochę inne wyprowadzenie tego co już robiliśmy, wprowadzamy zmienną $\rho = \frac{r}{a_0},\quad \varepsilon = \frac{E}{E_0}$ oraz nową funkcję
+$f(\rho) = \rho R(a_0 \rho)$, wtedy
+$$
+\begin{array}{l}
+	\frac{d}{dr}R(r) = \frac{1}{a_0}\left(\frac{f'}{\rho} - \frac{f}{\rho^2}\right)\\\\
+	\frac{d^2}{dr^2}R(r) = \frac{1}{a_0^2}\left(\frac{f''}{\rho}-2\frac{f'}{\rho^2}+2\frac{f}{\rho^3}\right)
+\end{array}
+$$
+wprowadzamy to do równania (pomijam argumenty!)
+$$
+\begin{array}{l}
+	R'' +\frac{2}{r}R' + \frac{2m}{\hbar^2}\left(E+\frac{ke^2}{r}-\frac{\hbar^2l(l+1)}{2mr^2}\right)R = 0 \to \\\\
+	\to \frac{1}{a_0^2}\left(\frac{f''}{\rho}-2\frac{f'}{\rho^2}+2\frac{f}{\rho^3}\right) + \frac{2}{\rho a_0^2}\left(\frac{f'}{\rho} - \frac{f}{\rho^2}\right)
+	+\frac{2m}{\hbar^2}\left(E+\frac{ke^2}{a_0\rho}-\frac{\hbar^2l(l+1)}{2ma_0^2\rho^2}\right)\frac{f}{\rho} = 0
+\end{array}
+$$
+Czynniki zawierające $f', f$ z policzenia $R'',R'$ zredukują się pozostawiając jedynie $f''$, wtedy, mnożąc przez $\rho a_0^2$ otrzymujemy
+$$
+	f''  +\frac{2ma_0^2}{\hbar^2}\left(E+\frac{ke^2}{a_0\rho}-\frac{\hbar^2l(l+1)}{2ma_0^2\rho^2}\right)f = 0
+$$
+włączamy $2$ do nawiasu, jednocześnie wyciągając $E_0$ dzięki czemu otrzymujemy
+$$
+	f''  +\frac{ma_0^2}{\hbar^2}\frac{mk^2e^4}{\hbar^2}\left(2\varepsilon+\frac{ke^2}{a_0\rho}\frac{\hbar^2}{mk^2e^4}-\frac{\hbar^2l(l+1)}{ma_0^2\rho^2}\frac{\hbar^2}{mk^2e^4}\right)f = 0
+$$
+korzystamy z definicji $a_0$ dostając wynik 
+$$
+	f'' + \left(2\varepsilon+\frac{2}{\rho}- \frac{l(l+1)}{\rho^2}\right)f = 0
+$$
+
 
 \section{Wykrzyknik 8}
 $E_n = \frac{-Z^2}{2n^2}E_0$ zależy tylko od jednej liczby kwantowej $n=1, 2,
@@ -318,7 +348,85 @@ startujemy na $l=0$ więc ilość wyrazów to $n$.
 \[
   \sum^{n-1}_{l=0} (2l+1) = \frac{1+2(n-1) + 1}{2}n = n^2
 \]
-
+\section{Wykrzyknik 9}
+No to własność harmonik, jeżeli $\hat{r} = (\theta,\varphi)$ to $-\hat{r} = (\pi-\theta,\pi+\varphi)$, zatem
+$$
+	Y_{lm}(-\hat{r}) = Y_{lm}(\pi-\theta,\pi+\varphi) = (-1)^m C_{lm} P^m_l[\cos(\theta-\pi)]e^{im(\pi+\varphi)} = C_{lm} P^m_l[-\cos(\theta)]e^{im\varphi}
+$$
+teraz korzystamy z postaci Rodrigueza dla wielomianów Legendre'a dostając
+$$
+	(-1)^l (-1)^m C_{lm} P^m_l[\cos(\theta)]e^{im\varphi} = (-1)^l Y_{lm}(\hat{r})
+$$
+\subsection{Komentarz}
+	Własności dla wielomanów Legendre
+	$$
+		P_l^m (-x) = (-1)^{l+m} P_l^m(x)
+	$$
 \section{Wykrzyknik 10}
 nie byo?
+\section{Wykrzyknik 11}
+$$
+	\phi_{210} = R_{21}(r) Y_{10}(\hat{r})
+$$
+Normujemy
+$$
+	\braket{\phi_{210}}{\phi_{210}} = \int\limits_{\mathbb{R}^3} R_{21}^2 Y_{10} Y_{10}^\dagger d^3r
+$$
+Funkcja $\phi$ jest iloczynem dwóch funkcji, o rozdzielonych zmiennych, zatem mamy do policzenia 2 całki
+$$
+	= \int\limits_0^{\infty}R^2 r^2 dr \cdot \int\limits_{\Omega} Y_{10} Y_{10}^\dagger d\Omega
+$$
+najpierw całka radialna
+$$
+	\int\limits_0^{\infty}R^2 r^2 dr  = C^2\int\limits_0^{\infty}r^4 e^{-r} = 8C^2
+$$
+teraz całka kątowa, jednak harmoniki tworzą układ ortonormalny, zatem
+$$
+	\int\limits_{\Omega} Y_{10} Y_{10}^\dagger d\Omega = 1
+$$
+wtedy obliczamy stałą $C$
+$$
+	8C^2 = 1 \implies C= \frac{1}{2\sqrt{6}}
+$$
+teraz liczymy średnią odległość
+$$
+	\bra{\phi_{210}}r\ket{\phi_{210}} = \int\limits_0^{\infty}R^2 r^3 dr \cdot \int\limits_{\Omega} Y_{10} Y_{10}^\dagger d\Omega
+$$
+pomijamy część kątową
+$$
+	\frac{1}{24}\int\limits_0^{\infty}r^5 e^{-r} = \frac{5!}{24} = 5 \to r_{21} = 5a_0
+$$
+\section{Wykrzyknik 13}
+Reguła wyboru dla zmiany $l$
+$$
+	\bra{\varphi_{n_1l_1m_1}}\left[\hat{\vec{L}}^2,[\hat{\vec{L}}^2,\vec{r}]\right]\ket{\varphi_{n_2l_2m_2}} = 2\hbar^2\bra{\varphi_{n_1l_1m_1}}\left\{\hat{\vec{L}}^2,\vec{r}\right\} \ket{\varphi_{n_2l_2m_2}}
+$$
+Obliczamy lewą stronę ($L$)
+$$
+\begin{array}{lll}
+	L &=& \bra{\varphi_{n_1l_1m_1}} \hat{\vec{L}}^2 \hat{\vec{L}}^2\vec{r}- 2\hat{\vec{L}}^2\vec{r}\hat{\vec{L}}^2+\vec{r}\hat{\vec{L}}^2\hat{\vec{L}}^2\ket{\varphi_{n_2l_2m_2}} =\\\\
+	&=& \hbar^4\left[l_1^2(l_1+1)^2-2l_1(l_1+1)l_2(l_2+1)+l_2^2(l_2+1)^2 \right]\vec{r}_{12} = \hbar^4\left[l_1(l_1+1)-l_2(l_2+1)\right]^2\vec{r}_{12}
+\end{array}
+$$
+następnie prawa strona ($P$)
+$$
+\begin{array}{lll}
+	P &=& 2\hbar^2\bra{\varphi_{n_1l_1m_1}}\hat{\vec{L}}^2\vec{r}+\vec{r}\hat{\vec{L}}^2\ket{\varphi_{n_2l_2m_2}} = 2\hbar^4\left[l_1(l_1+1)+l_2(l_2+1)\right]\vec{r}_{12}
+\end{array}
+$$
+przyrównujemy je do siebie $L=P$, pomijamy wektor $\vec{r}_{12}, \hbar^4$, w odpowiednim momencie wprowadzimy zmienne $u = l_1+l_2,\quad v = l_1-l_2\implies l_1=\frac{1}{2}(u+v),\quad l_2 = \frac{1}{2}(u-v)$
+$$
+	L = (...) = (l_1^2+l_1-l_2^2-l_2)^2 = [(l_1-l_2)(l_1+l_2)+l_1-l_2]^2 = (l_1-l_2)^2 (l_1+l_2+1)^2 = v^2 (u+1)^2
+$$
+oraz
+$$
+	P = 2[l_1(l_1+1)+l_2(l_2+1)] = 2l_1^2+2l_2^2+2(l_1+l_2) = \frac{1}{2}(u+v)^2+\frac{1}{2}(u-v)^2+2u = u^2+v^2+2u
+$$
+przepisujemy w postaci $L-P=0$
+$$
+\begin{array}{lll}
+	L-P &=& v^2(u+1)^2-u^2-v^2-2u = v^2(u+1-1)(u+1+1) - u(u+2) = v^2u(u+2)-u(u+2) =\\\\ &=& u(u+2)(v-1)(v+1) = (l_1+l_2)(l_1+l_2+2)[(l_1-l_2)^2-1] = 0
+\end{array}
+$$
+co daje reguły wyboru
 \end{document}
