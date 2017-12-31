@@ -25,6 +25,7 @@
 \usepackage{physics}
 \usepackage{bigints}
 \usepackage{mathtools} %adds abs
+\usepackage{enumitem} %adds letters to items in enumerate
 
 \title{Atomowa Fizyka, czyli każdego dla skrypt} % Title
 
@@ -363,7 +364,39 @@ $$
 		P_l^m (-x) = (-1)^{l+m} P_l^m(x)
 	$$
 \section{Wykrzyknik 10}
-nie byo?
+Ponieważ 
+\[
+  \int_0^\infty dr r^2 R_{nl}^2(r) = 1
+\]
+więc możemy przyjąć, że funkcja $p_{nl} = r^2R_{nl}^2(r)$ jest gęstością
+prawdopodobieństwa znalezienia elektronu w odległości r od jądra. (bez dowodu
+na wykładzie i nie zadane jako wykrzyknik, więc dowód jest improwizowany)
+Dowód:
+\[
+  p_{nl} = r^2 \int_0^{2\pi}\phi\int_0^\pi d\theta\sin\theta
+  \abs{\phi(\vec{r})}^2 = \bigg\vert \phi_{nlm} (\vec{r}) =
+  R_{nl}(r)Y_{lm}(\hat{r}) \bigg\vert =
+  r^2R_{nl}^2(r)\int_0^{2\pi}\phi\int_0^\pi d\theta\sin\theta Y^*_{lm} Y_{l'm'}
+  = r^2 R_{nl}^2(r)
+  \
+\]
+Podpunkty
+\begin{enumerate}[label=(\alph*)]
+  \item Korzystając z danych z zadania
+    \[
+      R_{10} = 2e^{-2}
+    \]
+    \[
+      p_{10} = r^2(2e^{-r})^2 = 4r^2 e^{-2r}
+    \]
+  \item
+    \[
+      \left< r \right>_{10} = 4 \int_0^\infty r^3 e^{-2r} dr = \bbig \vert t =
+      2r \bbig \vert = \frac{1}{4} \int_0^\infty t^3 e^{-t} dt = \frac{3}{2}
+    \]
+    Wychodząc z jednostek atomowych $a_0 \approx 0.5 \dot{A}$ $\Rightarrow$
+    $\left< r \right>_{10} \approx \frac{3}{4} \dot{A}$
+\end{enumerate}
 \section{Wykrzyknik 11}
 $$
 	\phi_{210} = R_{21}(r) Y_{10}(\hat{r})
