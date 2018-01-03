@@ -391,8 +391,8 @@ Podpunkty
     \]
   \item
     \[
-      \left< r \right>_{10} = 4 \int_0^\infty r^3 e^{-2r} dr = \bbig \vert t =
-      2r \bbig \vert = \frac{1}{4} \int_0^\infty t^3 e^{-t} dt = \frac{3}{2}
+      \left< r \right>_{10} = 4 \int_0^\infty r^3 e^{-2r} dr = \bigg \vert t =
+      2r \bigg \vert = \frac{1}{4} \int_0^\infty t^3 e^{-t} dt = \frac{3}{2}
     \]
     Wychodząc z jednostek atomowych $a_0 \approx 0.5 \dot{A}$ $\Rightarrow$
     $\left< r \right>_{10} \approx \frac{3}{4} \dot{A}$
@@ -462,4 +462,163 @@ $$
 \end{array}
 $$
 co daje reguły wyboru
+\section{Wykrzyknik 15}
+	\textbf{Uwaga! Ten wykrzyknik rozwiązuję tak jak było na ćwiczeniach, ponieważ zamiana numeracji prowadzi do zamiany miejsc delt w macierzy, nie widzę sensu, żeby
+	wprowadzać zamieszanie.}\\
+	Przyjmujemy jednostki atomowe oraz następującą numerację 
+		$$
+		\begin{array}{lll}
+			\varphi_1 &=& \varphi_{200} = \frac{1}{\sqrt{2}}e^{-r/2}\left(1-r/2\right)Y_{00}\\
+			\varphi_2 &=& \varphi_{210} = \frac{1}{2\sqrt{6}}re^{-r/2}Y_{10}\\
+			\varphi_3 &=& \varphi_{211} = \frac{1}{2\sqrt{6}}re^{-r/2}Y_{11}\\
+			\varphi_4 &=& \varphi_{21-1}= \frac{1}{2\sqrt{6}}re^{-r/2}Y_{1-1}
+		\end{array}
+		$$
+	Musimy policzyć elementy macierzowe 
+		$$
+		a_{ij} = \bra{\varphi_i}E_z z\ket{\varphi_j}
+		$$
+	Lecimy- najpierw elementy zerowe, przy czym  $z = r\cos(\theta) = r\sqrt{\frac{4\pi}{3}}Y_{10}$
+		\begin{enumerate}
+			\item  $a_{11} = \bra{\varphi_1}E_z z\ket{\varphi_1} = 0$ przez: całka z $\cos(\theta)$ po przedziale $[0,\pi]$ 
+			\item $a_{13} = \bra{\varphi_1}E_z z\ket{\varphi_3} = 0$ przez: całka z $e^{i\varphi}$ po przedziale $[0,2\pi]$
+			\item $a_{14} = \bra{\varphi_1}E_z z\ket{\varphi_4} =0 $ przez:  całka z $e^{-i\varphi}$ po przedziale $[0,2\pi]$
+			\item $a_{22} = \bra{\varphi_2}E_z z\ket{\varphi_2} = 0$ przez: całka z $\cos^3(\theta)\sin(\theta)$ po przedziale $[0,\pi]$ 
+			\item $a_{23} = \bra{\varphi_2}E_z z\ket{\varphi_3} = 0$ przez: całka z $e^{i\varphi}$ po przedziale $[0,2\pi]$
+			\item $a_{24} = \bra{\varphi_2}E_z z\ket{\varphi_4} = 0$ przez: całka z $e^{-i\varphi}$ po przedziale $[0,2\pi]$
+			\item $a_{33} = \bra{\varphi_3}E_z z\ket{\varphi_3} = 0$ przez: całka z $\sin^3(\theta)\cos(\theta)$ po przedziale $[0,\pi]$
+			\item $a_{34} = \bra{\varphi_3}E_z z\ket{\varphi_4} = 0$ przez: całka z $e^{2i\varphi}$ po przedziale $[0,2\pi]$
+			\item $a_{44} = \bra{\varphi_4}E_z z\ket{\varphi_4} = 0$ przez: całka z $\sin^3(\theta)\cos(\theta)$ po przedziale $[0,\pi]$
+		\end{enumerate}
+	natomiast dla elementów niezerowych, pamiętając, że $z = r\cos(\theta) = r\sqrt{\frac{4\pi}{3}}Y_{10}$
+		$$
+		\begin{array}{lll}
+			a_{12} &=& E_z \bra{\varphi_1}z\ket{\varphi_2} = \int\limits_{\mathbb{R}^3}d^3r\varphi_1^*r\cos(\theta)\varphi_2 = \\\\
+				   &=& E_z \int\limits_0^\infty dr r^3 \frac{1}{\sqrt{2}}e^{-r/2}\left(1-r/2\right)
+				   \frac{1}{2\sqrt{6}}re^{-r/2}\int\limits_{\Omega}\sqrt{\frac{4\pi}{3}}Y_{10}Y_00^*Y_{10} = \\\\
+				   &=& E_z \frac{1}{4\sqrt{3}}\int\limits_0^\infty dr r^4\left(1-r/2\right)e^{-r} \int\limits_{\Omega}\sqrt{\frac{1}{3}}Y_{10}Y_{10} =\\\\
+				   &=& E_z \frac{1}{8\sqrt{3}}\int\limits_0^\infty dr 2r^4e^{-r}-r^5e^{-r} \frac{1}{\sqrt{3}} = \\\\
+				   &=& E_z \frac{1}{24}(2*4!-5!) = -3 E_z
+		\end{array}
+		$$
+		
+\subsection{Komentarze}
+	Całka postaci 
+	$$
+		\Gamma(x) = \int\limits_0^\infty e^{-t}t^{x-1}dt 
+	$$
+	dla $x=n\in\mathbb{N}$ upraszcza się do
+	$$
+		\Gamma(n) = \int\limits_0^\infty e^{-t}t^{n-1}dt =(n-1)!
+	$$
+\section{Wykrzyknik 17}
+	Transformacja cechowania pola elektromagnetycznego
+	$$
+	\begin{array}{lll}
+		\vec{A}' &=& \vec{A}-\grad{\chi} \\
+		\phi' &=& \phi+\dot{\chi}
+	\end{array}
+	$$
+	Wtedy pole elektryczne
+	$$
+		\vec{E}' = -\dot{\vec{A}}'-\grad{\phi}' = -\dot{\vec{A}}+\dot{\grad{\chi}} - \grad{(\phi+\dot{\chi})} = -\dot{\vec{A}}+\dot{\grad{\chi}} - \grad{\phi} - \grad{\dot{\chi}} = -\dot{\vec{A}} - \grad{\phi} = \vec{E}
+	$$
+	jest niezmiennicze oraz pole magnetyczne
+	$$
+		\vec{B}' = \nabla\times\vec{A}' = \nabla\times(\vec{A}-\grad{\chi}) = \nabla\times\vec{A} = \vec{B}
+	$$
+	Jeżeli ustalimy $\vec{B}=\vec{const}$, wówczas potencjał wektorowy $\vec{A} = \frac{1}{2} \nabla \times \vec{B}$, przyjmijmy, że $\vec{B} = (0,0,B)$, wtedy
+	$$
+		\vec{A} = \frac{1}{2}\left|
+			\begin{array}{ccc}
+				i & j & k \\
+				0 & 0 & B \\
+				x & y & z 
+			\end{array}\right| = \frac{1}{2}(-yB,xB,0)
+	$$
+	natomiast skoro $\vec{B} = \nabla\times\vec{A}$:
+	$$
+		B = \partial_x A_y - \partial_y A_x =\frac{B}{2}+\frac{B}{2} = B
+	$$
+	Ponadto, spełnione jest cechowanie Culomba
+	$$
+		\nabla\vec{A} =\partial_x A_x + \partial_y A_y + \partial_z A_z = 0
+	$$
+\section{Wykrzyknik 19}
+	Rozwiązujemy podpunktami
+	\begin{enumerate}
+		\item Wiemy, że $\vec{A}(\vec{r},t) = \vec{A}_0 \sin(\omega t - \vec{k}\cdot\vec{r}+\varphi)$, szukamy zależnośc na parametry tak aby
+		równanie $\square\vec{A}=0$ było spełnione, pamiętając $\square = \nabla^2 - \frac{1}{c^2}\partial_t^2$.\\
+		Nie liczyliśmy tego na zajęciach, a ogólnie zapowiada się sporo liczenia (laplasjan z funkcji wektorowej), zatem ograniczam się do przypadku jednowymiarowego
+		$$
+			\partial_x^2 A = k^2 A_0 \sin(\omega t - kx +\varphi)
+		$$
+		oraz
+		$$
+			\partial_t^2 A = \omega^2 A_0\sin(\omega t - kx+\varphi)
+		$$
+		zatem 
+		$$
+			 k^2 A_0 \sin(\omega t - kx +\varphi) - \frac{\omega^2}{c^2}A_0\sin(\omega t - kx+\varphi) = 0 
+		$$
+		co jest spełnione wtedy i tylko wtedy, gdy $k = \frac{\omega}{c}$
+		\item Warunek na $\vec{A}_0$ znajdujemy z cechowania Culomba
+		$$
+			\nabla \vec{A} = 0 \Leftrightarrow -k_xA_{0_x} \cos(\omega t - \vec{k}\cdot\vec{r}+\varphi) - k_yA_{0_y}\cos(\omega t - \vec{k}\cdot\vec{r}+\varphi)
+			-k_z A_{0_z} \cos(\omega t - \vec{k}\cdot\vec{r}+\varphi) = 0 
+		$$
+		czyli 
+		$$
+			k_xA_{0_x} + k_yA_{0_y} + k_zA_{0_z} = \vec{A}_0 \circ \vec{k} = 0  \Leftrightarrow \vec{A}_0 \perp \vec{k}
+		$$
+		\item Wektor Poyntinga jest to powierzchniowa gęstość strumienia mocy fali elektromagnetycznej $[\vec{S}] = \frac{W}{m^2}$
+		\item Przy obliczaniu wektorów $\vec{E},\vec{B},\vec{S}$ przyjmuję fazę $\varphi =0$, wtedy
+		$$
+			\vec{E} = -\dot{\vec{A}} = -\vec{A}_0\omega\cos(\omega t -\vec{k}\vec{r})
+		$$
+		oraz dla $\vec{B}$
+		$$
+		\begin{array}{l}
+			\vec{B} = \nabla\times\vec{A} = \epsilon_{ijk}\hat{e}_i\partial_j A_{0_k}\sin(\omega t-\vec{k}\vec{r}) = -\epsilon_{ijk}\hat{e}_i A_{0_k}k_j\cos(\omega t-\vec{k}\vec{r}) =\\
+			=\vec{A}_0\times\vec{k}\cos(\omega t-\vec{k}\vec{r})
+		\end{array}
+		$$
+		wtedy $\vec{S}$
+		$$
+		\begin{array}{l}
+			\vec{S}=\mu_0^{-1}\vec{E}\times\vec{B} = -\mu_0^{-1}\omega\cos^2(\omega t-\vec{k}\vec{r})\,\,\vec{A}_0\times(\vec{A}_0\times\vec{k}) =\\
+			= -\mu_0^{-1}\omega\cos^2(\omega t-\vec{k}\vec{r})\,\, \left[\vec{A}_0(\vec{A}_0\circ\vec{k})-\vec{k}A_0^2\right]
+		\end{array}
+		$$
+	\end{enumerate}
+\subsection{Komentarze}
+	Powyższy wykrzyknik był zrobiony częściowo w ramach wykładu, ale dla funkcji $\cos$ a nie $\sin$.\\
+	Wzór na podwójny iloczyn wektorowy
+	$$
+	\vec{a}\times(\vec{b}\times\vec{c}) = \vec{b}(\vec{a}\circ\vec{c}) - \vec{c}(\vec{a}\circ\vec{b})
+	$$
+\section{Wykrzyknik 21}
+	Żarówka, dane: $P=100$W, $l = 1$[cm], $r=1$[mm], $\nu=10^{15}$[Hz]
+	\begin{enumerate}
+		\item $\overline{\rho}_\varepsilon  = \frac{1}{T}\int\limits_0^T\frac{1}{2}(\varepsilon_0E^2+\mu_0^{-1}B^2)dt = I_1+I_2$
+		.Obliczamy kolejno
+		$$
+		\begin{gathered}
+			I_1 = \frac{1}{2T}\int\limits_0^T\varepsilon_0E^2 dt = \frac{\varepsilon_0}{2T}\int\limits_0^TA_0^2\omega^2\sin^2(\omega t -\vec{k}\vec{r})dt = \\\\
+				= \frac{E_0^2}{2T}\int\limits_0^T\sin^2(\omega t -\vec{k}\vec{r})dt = \big\vert \omega t - \varphi = u\big\vert = \\\\
+				= \frac{E_0^2}{2T\omega}\int\limits_{-\varphi}^{\omega T-\varphi}\sin^2u du = \frac{\varepsilon_0 E_0^2}{4} \\\\\\
+			I_2 = \frac{1}{2T\mu_0}\int\limits_0^T B^2 dt = \frac{B_0^2}{2T\mu_0}\int\limits_0^T\sin^2(\omega t -\varphi)dt = \frac{B_0^2}{4\mu_0}
+		\end{gathered}
+		$$
+		wtedy 
+		$$
+			\overline{\rho}_\varepsilon = \frac{\varepsilon_0 E_0^2}{4}+ \frac{B_0^2}{4\mu_0} = \frac{1}{4}\omega^2A_0^2(\varepsilon_0+\frac{1}{\mu_0c^2})=\frac{\varepsilon_0\omega^2A_0^2}{2}
+		$$
+		\item $\frac{P}{2\pi r l c} = \overline{\rho}_\varepsilon = \frac{\varepsilon_0\omega^2A_0^2}{2}$
+		Zatem dla naszej żarówki 
+		$$
+			A_0 = \frac{1}{\omega}\sqrt{\frac{P}{\pi r l c \varepsilon_0}} \sim \big\vert \hbar \omega \sim 10eV\big\vert \sim 10^{-12}
+		$$
+	\end{enumerate}
 \end{document}
+
