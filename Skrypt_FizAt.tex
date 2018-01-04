@@ -1,15 +1,14 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{mathptmx}
+\usepackage[T1]{fontenc} %% TMP
+\usepackage{palatino}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{import}
 \usepackage{float}
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
-\usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref} %[hidelinks] - chowa hiperzłącza
 \usepackage{pdfpages}
 \usepackage[font=small]{caption}
@@ -620,5 +619,116 @@ co daje reguły wyboru
 			A_0 = \frac{1}{\omega}\sqrt{\frac{P}{\pi r l c \varepsilon_0}} \sim \big\vert \hbar \omega \sim 10eV\big\vert \sim 10^{-12}
 		$$
 	\end{enumerate}
+\section{Wykrzyknik 23}
+	Hamiltonian układu
+		$$
+		\hat{H} = \hat{H}_{at} + \hat{H}'
+		$$
+	gdzie $\hat{H}'=\frac{e}{m}\vec{A}\circ\hat{\vec{p}}-$ hamiltonian opisujący oddziaływanie z polem elektromagnetycznym. Niech $\psi(\vec{r},t)$ spełnia równanie Schrodingera
+		$$
+		\hat{H}\psi(\vec{r},t)=i\hbar\partial_t \psi(\vec{r},t)
+		$$
+	funkcję falową rozkładamy w bazie wektorów własnych operatora $\hat{H}_{at}$, tzn. $\hat{H}_{at}\psi_j(\vec{r},t) = E_j\psi_j(\vec{r},t)$, wtedy
+		$$
+		\psi(\vec{r},t) = C_1(t)\psi_1(\vec{r},t) + C_2(t)\psi_2(\vec{r},t)
+		$$
+	Skoro ta funkcja falowa spełnia wcześniejsze równanie Schrodingera, to:
+		$$
+		\hat{H}\left[C_1\psi_1(\vec{r},t) + C_2\psi_2(\vec{r},t)\right] = i\hbar\partial_t\left[C_1\psi_1(\vec{r},t) + C_2\psi_2(\vec{r},t)\right]
+		$$
+	pamiętamy, że $\dot{\psi}_j = -i/\hbar E_j \psi_j$ oraz $\hat{H} = \hat{H}_{at} + \hat{H}'$, wtedy, po przekształceniach dochodzimy do postaci
+		$$
+		\hat{H}'C_1\psi_1 + \hat{H}'C_2\psi_2 = i\hbar\left(\dot{C}_1\psi_1+\dot{C}_2\psi_2\right)
+		$$
+	następnie, aby otrzymać jedno z równań, mnożymy obustronnie przez $\psi_1$, wówczas
+		$$
+		C_1\bra{\psi_1}\hat{H}'\ket{\psi_1}+C_2\bra{\psi_1}\hat{H}'\ket{\psi_2} = i\hbar\dot{C}_1
+		$$
+	wcześniej obliczaliśmy $\bra{\varphi_j}\hat{H}'\ket{\varphi_k} = W_{jk}\cos(\omega t)$, oczywiście $\psi_j = e^{-i\hbar E_j t}\varphi_j$
+		$$
+		i\hbar\dot{C}_1 = C_2 W_{12}e^{i\omega_{12}t}\cos(\omega t)
+		$$
+	oraz analogicznie postępujemy dla wektora $\psi_2$, co prowadzi do
+		$$
+		i\hbar\dot{C}_2 = C_1 W_{21}e^{-i\omega_{12}t}\cos(\omega t)
+		$$
+	oczywiście $\omega_0 = -\omega_{12}$ co od razu prowadzi do wyniku.
+\subsection{Komentarze}
+	Istotna uwaga jest taka, że $\hat{H}'$ zależy od $A_0^2$, ale skoro sama wartość $A_0$ jest mała to składnik z $A_0^2$ możemy pominąć.\\
+	Wartość $\bra{\varphi_j}\hat{H}'\ket{\varphi_k} = W_{jk}\cos(\omega t)$ wyprowadziliśmy następująco: załóżmy, że mamy przybliżenie dipolowe, tzn. 
+		$$
+		\left.\frac{|\vec{k}\circ\vec{r}|}{\omega t}\right|_{t\sim\pi} \ll 1
+		$$
+	wówczas element macierzowy operatora $\hat{H}' = \frac{e}{m}\vec{A}\circ\hat{\vec{p}}$ przyjmie postać
+		$$
+		\bra{\varphi_j}\hat{H}'\ket{\varphi_k}=\frac{e}{m}\bra{\varphi_j}\cos(\omega t-\vec{k}\circ\vec{r})\vec{A}_0\circ\hat{\vec{p}}\ket{\varphi_k} = \frac{e}{m}\cos(\omega t)\vec{A}_0
+		\bra{\varphi_j}\hat{\vec{p}}\ket{\varphi_k}
+		$$
+	tutaj rozwinęliśmy $\cos$ w szereg względem $kr$. Element macierzowy $\bra{\varphi_j}\hat{\vec{p}}\ket{\varphi_k}$ wyliczymy korzystając z z komutacji
+		$$
+		\left[\hat{H}_{at},\hat{\vec{r}}\right] = -i\hbar/m \hat{\vec{p}}
+		$$
+	wówczas
+		$$
+		\bra{\varphi_j}\hat{\vec{p}}\ket{\varphi_k} = \bra{\varphi_j}im/\hbar\left[\hat{H}_{at},\hat{\vec{r}}\right]\ket{\varphi_k}= i\frac{m}{\hbar}(E_j-E_k)\bra{\varphi_j}\vec{r}\ket{\varphi_k}
+		$$
+	wprowadzamy to wyrażenie do obliczonego elementu macierzowego, wprowadzając wektor elektrycznego momentu dipolowego $\vec{d}=e\vec{r}$
+		$$
+			\bra{\varphi_j}\hat{H}'\ket{\varphi_k} = \frac{e}{m}\cos(\omega t)\vec{A}_0i\frac{m}{\hbar}(E_j-E_k)\frac{1}{e}\vec{d}_{jk} = i\omega_{jk}\cos(\omega t)\vec{A}_0\circ\vec{d}_{jk} = W_{jk}\cos(\omega t)
+		$$
+	Przybliżenie dipolowe uzasadniamy faktem, że 
+		$$
+		\varphi(\vec{r}) \sim e^{-r/a n} \implies r \leq a n
+		$$
+	ponadto 
+		$$
+		k = \omega/c \sim \frac{E_0}{2\hbar c n^2}
+		$$
+	wtedy
+		$$
+		kr \leq \frac{\alpha}{2n} \ll 1
+		$$
+\section{Wykrzyknik 25}
+TO DO
+\section{Wykrzyknik 27}
+\textbf{Radzę przeliczyć na własną rękę!}\\
+	Zapis z $\alpha$
+	$$
+	\begin{gathered}
+		A_{21} = \frac{4}{3}k_{el}\frac{d_{12}^2}{\hbar c^3}\omega_{21}^2 = \bigg\vert \alpha = \frac{k_{el} e^2}{\hbar c} \bigg\vert = \frac{4}{3} \frac{k_{el} e^2}{\hbar c}
+				\frac{r_{12}^2}{c^2}\omega_{21}^2 =\\
+				=\frac{4}{3} \alpha \frac{r_{12}^2}{c^2}\omega_{21}^2 = \frac{4}{3} \alpha \frac{r_{12}^2}{c^2} \frac{E_0}{\hbar}\left[-\frac{1}{8}+\frac{1}{2}\right] = 
+				\bigg\vert E_0 = \alpha^2 (mc)^2\bigg\vert = \frac{1}{2}\alpha^3 \frac{r_{12}^2m^2}{\hbar}
+	\end{gathered}
+	$$
+	Jednostka
+	$$
+	[A_{21}] = \frac{Nm^2}{C^2}\frac{C^2 m^2}{J\cdot s\cdot m^3/s^3}\frac{1}{s^2} = \frac{1}{s}
+	$$
+	Szacowana wartość
+	$$
+	A_{21} \sim 6,26 \cdot10^{8} \frac{1}{s}
+	$$
+\section{Wykrzyknik 29}
+	Nie no... wystarczy umieć mnożyć macierze.
+\section{Wykrzyknik 31}
+ 	Obliczmy najpierw $\hat{S}\circ\hat{L}$ 
+ 		$$
+ 		\hat{J}= \hat{L}+\hat{S} \implies \hat{J}^2 = \hat{L}^2+\hat{S}^2 + 2\hat{S}\circ\hat{L}
+ 		$$
+ 	zatem
+ 		$$
+ 		\hat{S}\circ\hat{L}=\frac{1}{2}\left[\hat{J}^2-\hat{L}^2-\hat{S}^2 \right]
+ 		$$
+ 	wprowadzamy to do naszego hamiltonianu na oddziaływanie spin-orbita 
+ 		$$
+ 		\hat{H}_{SO} = \frac{-ke^2}{4m^2c^2}\frac{1}{r^3}\left[\hat{J}^2-\hat{L}^2-\hat{S}^2 \right]
+ 		$$
+ 	wtedy element macierzowy
+ 		$$
+ 		\begin{gathered}
+ 			\bra{nlmsjm_j}\hat{H}_{SO}\ket{nlmsjm_j} = \frac{const}{r^3}\cdot\bra{nlmsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlmsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
+ 		\end{gathered}
+ 		$$
 \end{document}
 
