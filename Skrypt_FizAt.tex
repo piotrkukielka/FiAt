@@ -503,13 +503,11 @@ $$
 	L-P &=& v^2(u+1)^2-u^2-v^2-2u = v^2(u+1-1)(u+1+1) - u(u+2) = v^2u(u+2)-u(u+2) =\\\\ &=& u(u+2)(v-1)(v+1) = (l_1+l_2)(l_1+l_2+2)[(l_1-l_2)^2-1] = 0
 \end{array}
 $$
-<<<<<<< HEAD
 co daje reguły wyboru.
 
 \section{Wykrzyknik 14}
 
-=======
-co daje reguły wyboru
+
 \section{Wykrzyknik 15}
 	\textbf{Uwaga! Ten wykrzyknik rozwiązuję tak jak było na ćwiczeniach, ponieważ zamiana numeracji prowadzi do zamiany miejsc delt w macierzy, nie widzę sensu, żeby
 	wprowadzać zamieszanie.}\\
@@ -559,6 +557,29 @@ co daje reguły wyboru
 	$$
 		\Gamma(n) = \int\limits_0^\infty e^{-t}t^{n-1}dt =(n-1)!
 	$$
+
+\section{Wykrzyknik 16}
+\textbf{UWAGA! i tak dalej...}\\
+Szukamy wartości własnych czyli odejmujemy lambdy na diagonali i przy użyciu
+rozwinięcia Laplace'a względem elementu 44 a następnie 33 otrzymujemy
+\begin{equation*}
+  \lambda^2 \left( \lambda^2 - \Delta^2 \right) = 0
+\end{equation*}
+stąd $\lambda_{1,2} = 0$, $\lambda_3 = \Delta$, $\lambda_4 = -\Delta$.
+Znaleźliśmy wartości własne, więc wyliczamy wektory własne (z prawej dopisujemy
+wektor-kolumienkę (x,y,z,t), kolejno przypadki dla każdej lamdy przyrównujemy do
+kolumny zer). Wymnażając i normalizując otrzymujemy:
+
+\begin{equation*}
+  \phi_{\lambda=\Delta} = \frac{1}{\sqrt(2)}\begin{pmatrix}{1 \\ 1 \\ 0 \\ 0}\end{pmatrix}\quad
+  \phi_{\lambda = -\Delta} = \frac{1}{\sqrt(2)}\begin{pmatrix}{1 \\ -1 \\ 0 \\ 0}\end{pmatrix}\quad
+  \phi_{\lambda = 0} = \left\{\begin{pmatrix}{1 \\ 1 \\ 0 \\
+    0}\end{pmatrix},\begin{pmatrix}{1 \\ 1 \\ 0 \\ 0}\end{pmatrix} \right\}
+\end{equation*}
+A więc $\phi_{\lambda_1=0} = \phi_3$, $\phi_{\lambda_2=0} = \phi_4$,
+$\phi_{\lambda=\Delta} = \frac{1}{\sqrt{2}}\left( \phi_1 + \phi_2 \right)$,
+$\phi_{\lambda=-\Delta} = \frac{1}{\sqrt{2}}\left( \phi_1 - \phi_2 \right)$
+
 \section{Wykrzyknik 17}
 	Transformacja cechowania pola elektromagnetycznego
 	$$
@@ -592,6 +613,9 @@ co daje reguły wyboru
 	$$
 		\nabla\vec{A} =\partial_x A_x + \partial_y A_y + \partial_z A_z = 0
 	$$
+
+\section{Wykrzyknik 18}
+
 \section{Wykrzyknik 19}
 	Rozwiązujemy podpunktami
 	\begin{enumerate}
@@ -779,6 +803,5 @@ TO DO
  			\bra{nlmsjm_j}\hat{H}_{SO}\ket{nlmsjm_j} = \frac{const}{r^3}\cdot\bra{nlmsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlmsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
  		\end{gathered}
  		$$
->>>>>>> c069c79a15b317d8a721532c53b84d4318530185
 \end{document}
 
