@@ -623,14 +623,61 @@ oraz
 \begin{equation*}
   \gamma = e^{\frac{i}{\hbar}q\chi}
 \end{equation*}
-
-Więc biorąc równanie Schrodingera:
+wtedy równanie Schrodingera (w cechowaniu Coulomba):
 \begin{equation*}
-  \left[ \frac{\hat{D}^2(\vec{A}')}{2m} + Q\phi \right] \Psi' = i \hbar
+  \left[ \frac{\hat{D}^2(\vec{A}')}{2m} + q\phi \right] \Psi' = i \hbar
   \dot{\Psi}'
 \end{equation*}
-
-
+Chcemy udowodnić, że
+\begin{equation*}
+  \hat{H}(\vec{A}', \phi') \Psi' = i\hbar \Psi' \quad \Leftrightarrow \quad
+  H(\vec{A}, \phi) \Psi = i\hbar \Psi
+\end{equation*}
+Chcąc wyliczyć $\hat{\vec{D}}(\vec{A}')$ 
+\begin{equation*}
+  \hat{\vec{D}} (\vec{A} - \nabla \chi) \gamma \Psi = \left( \vec{P} - q\vec{A}
+  + q\nabla \chi \right) \gamma \Psi = -i \hbar \nabla
+  e^{\frac{i}{\hbar}q\chi} \Psi(\vec{r}, t) - q \vec{A} \gamma\Psi + q\nabla\chi
+  \gamma \Psi
+\end{equation*}
+rozpisując pochodną iloczynu (należy pamiętać, że $\chi$ jest zależne od r)
+oraz zwijając eksponenty do $\gamma$ otrzymujemy:
+\begin{equation*}
+  \hat{\vec{D}} (\vec{A} - \nabla \chi) \gamma \Psi = -\gammaq \nabla \chi \Psi
+  - i\hbar \gamma \nabla \Psi - q\vec{A} \gamma \Psi + q\nabla \chi \gamma \Psi
+  = \gamma \hat{\vec{P}} \Psi - \gamma q \vec{A} \Psi = \gamma \hat{\vec{D}}
+  (\vec{A}) \Psi
+\end{equation*}
+Stąd 
+\begin{equation*}
+  \hat{D}(\vec{A}) = \gamma\hat{D} (\vec{A})\gamma^{-1}
+\end{equation*}
+więc
+\begin{equation*}
+  \hat{D}^2 (\vec{A}) = \gamma\hat{D}(\vec{A})\gamma^{-1} \gamma
+  \hat{D}(\vec{A}) \gamma^{-1} = \gamma \hat{D}^2(\vec{A}) \gamma^{-1}
+\end{equation*}
+Dodatkowo wyliczamy pochodną:
+\begin{equation*}
+  \dot{Psi} = -\frac{i}{\hbar}q \dot{\chi} \gamma\Psi + \gamma\dot{\Psi}
+\end{equation*}
+Wracając do równania Schrodingera
+\begin{equation*}
+  \left[ \frac{\gamma \hat{D}^2(\vec{A}) \gamma^{-1}
+}{2m} + q\phi \right] \Psi' = i \hbar -\frac{i}{\hbar}q \dot{\chi} \gamma\Psi +
+\gamma\dot{\Psi}
+\end{equation*}
+Wymnażając i skracając
+\begin{equation*}
+  \frac{\gamma\hat{D}(\vec{A})}{2m}\Psi + q\phi \gamma \Psi = i\hbar \gamma
+  \dot{\Psi}
+\end{equation*}
+Mnożąc z lewej strony przez $\gamma^{-1}$
+\begin{equation*}
+  \left[ \frac{\hat{D}(\vec{A})}{2m} + q\phi \right]  \Psi = i\hbar 
+  \dot{\Psi}
+\end{equation*}
+Co kończy dowód.
 
 \section{Wykrzyknik 19}
 	Rozwiązujemy podpunktami
@@ -685,6 +732,43 @@ Więc biorąc równanie Schrodingera:
 	$$
 	\vec{a}\times(\vec{b}\times\vec{c}) = \vec{b}(\vec{a}\circ\vec{c}) - \vec{c}(\vec{a}\circ\vec{b})
 	$$
+
+\section{Wykrzyknik 20}
+Rozbijając całkę na dwie
+\begin{equation*}
+  \bar{\rho} = \frac{1}{T} \int_0^T \rho dt = I_1 + I_2
+\end{equation*}
+\begin{equation*}
+  I_1 = \frac{1}{2T}\epsilon_0 \int_0^T dt E_0^2 \sin^2 (\omega t -
+  \underbrace{\vec{q} \circ \vec{r}}_{=\phi}) = \frac{\epsilon_0}{2T} E_0^2
+  \int_0^T \sin^2 (\omega t - \phi) dt
+\end{equation*}
+Podstawiając $x = \omega t - \phi$
+\begin{equation*}
+  I_1 = \frac{\epsilon_0 E_0^2}{2T} \int_{-\phi}^{2\pi - \phi} \sin^2xdx =
+  \frac{\epsilon_0 E_0^2}{8\pi} \int_{-\phi}^{2\pi-\phi} dx =
+  \frac{\epsilon_0 E_0^2}{4}
+\end{equation*}
+Druga całka, analogicznie:
+\begin{equation*}
+  I_2 = \frac{1}{2T\mu_0} \int^T_0 \sin^2 (\omega t - \vec{q} \circ \vec{r}) B_0^2 =
+  \frac{B_0^2}{4 \mu_0}
+\end{equation*}
+Wiedząc, że
+\begin{equation*}
+  E_0^2 = \omega^2 A_0^2
+\end{equation*}
+oraz ($\vec{q} \perp A_0$ ponieważ cechowanie Coulomba)
+\begin{equation*}
+  B_0^2 = \left( \vec{q} \times \vec{A_0} \right)^2 = q^2 A_0^2 = \bigg \vert
+  \omega = qc \bigg \vert = \frac{\omega^2}{c^2}A_0^2
+\end{equation*}
+Łączymy całki i podstawiamy powyższe równości
+\begin{equation*}
+  \bar{\rho} = \frac{1}{4}\omega^2 A_0^2 \left(\epsilon_0 + \frac{1}{\mu_0 c^2}
+    = \frac{\epsilon_0}{2} \omega^2 A_0^2 
+\end{equation*}
+
 \section{Wykrzyknik 21}
 	Żarówka, dane: $P=100$W, $l = 1$[cm], $r=1$[mm], $\nu=10^{15}$[Hz]
 	\begin{enumerate}
@@ -708,6 +792,33 @@ Więc biorąc równanie Schrodingera:
 			A_0 = \frac{1}{\omega}\sqrt{\frac{P}{\pi r l c \varepsilon_0}} \sim \big\vert \hbar \omega \sim 10eV\big\vert \sim 10^{-12}
 		$$
 	\end{enumerate}
+
+\section{Wykrzyknik 22}
+\begin{equation*}
+  \left[ \hat{H}_{at}, \vec{r} \right] \phi =
+  \underbrace{\hat{H}_{at}\vec{r}\phi}_{L} -
+  \underbrace{\vec{r}\hat{H}_{at}\phi}_{P}
+\end{equation*}
+\begin{equation*}
+  L = \frac{-\hbar^2 \nabla^2 }{2m} (\vec{r} \phi) - \frac{ke^2}{r}(\vec{r}
+  \phi) = \frac{-\hbar}{2m }\nabla \left( \nabla \vec{r} \phi + \vec{r} \nabla
+    \phi\right) - \frac{ke^2}{r}(\vec{r} \phi) = \frac{-\hbar ^2 }{2m} \left(
+    \underbrace{\nabla^2 \vec{r} \phi}_{0} + 2\underbrace{\nabla \vec{r}}_{1}
+  \nabla \phi  + \vec{r} \nabla^2 \phi \right) - \frac{ke^2}{r} (\vec{r} \phi)
+\end{equation*}
+\begin{equation*}
+  P = \vec{r} \hat{H}_{at} \phi = -\vec{r} \frac{\hbar^2 \nabla^2}{2m} \phi -
+  \vec{r} \frac{ke^2}{r}\phi = -r \vec{r} \left( \frac{\hbar^2}{2m}\nabla^2 \phi
+  + \frac{ke^2}{r}\phi \right)
+\end{equation*}
+Więc ostatecznie
+\begin{equation*}
+  \left[ \hat{H}_{at}, \vec{r} \right] \phi = \frac{-\hbar ^2 }{2m} \left(
+    2 \nabla \phi  + \vec{r} \nabla^2 \phi \right) - \frac{ke^2}{r} (\vec{r}
+    \phi) + r \vec{r} \left( \frac{\hbar^2}{2m}\nabla^2 \phi
+    + \frac{ke^2}{r}\phi \right)  = \frac{-i\hbar}{m} \hat{\vec{p}}
+\end{equation*}
+
 \section{Wykrzyknik 23}
 	Hamiltonian układu
 		$$
@@ -777,6 +888,9 @@ Więc biorąc równanie Schrodingera:
 		$$
 		kr \leq \frac{\alpha}{2n} \ll 1
 		$$
+
+\section{Wykrzyknik 24}
+
 \section{Wykrzyknik 25}
 TO DO
 \section{Wykrzyknik 27}
