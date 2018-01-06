@@ -571,10 +571,10 @@ wektor-kolumienkę (x,y,z,t), kolejno przypadki dla każdej lamdy przyrównujemy
 kolumny zer). Wymnażając i normalizując otrzymujemy:
 
 \begin{equation*}
-  \phi_{\lambda=\Delta} = \frac{1}{\sqrt(2)}\begin{pmatrix}{1 \\ 1 \\ 0 \\ 0}\end{pmatrix}\quad
-  \phi_{\lambda = -\Delta} = \frac{1}{\sqrt(2)}\begin{pmatrix}{1 \\ -1 \\ 0 \\ 0}\end{pmatrix}\quad
-  \phi_{\lambda = 0} = \left\{\begin{pmatrix}{1 \\ 1 \\ 0 \\
-    0}\end{pmatrix},\begin{pmatrix}{1 \\ 1 \\ 0 \\ 0}\end{pmatrix} \right\}
+  \phi_{\lambda=\Delta} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}\quad
+  \phi_{\lambda = -\Delta} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \\ 0 \\ 0 \end{pmatrix}\quad
+  \phi_{\lambda = 0} = \left\{\begin{pmatrix}1 \\ 1 \\ 0 \\
+    0\end{pmatrix},\begin{pmatrix}1 \\ 1 \\ 0 \\ 0\end{pmatrix} \right\}
 \end{equation*}
 A więc $\phi_{\lambda_1=0} = \phi_3$, $\phi_{\lambda_2=0} = \phi_4$,
 $\phi_{\lambda=\Delta} = \frac{1}{\sqrt{2}}\left( \phi_1 + \phi_2 \right)$,
@@ -892,7 +892,66 @@ Więc ostatecznie
 \section{Wykrzyknik 24}
 
 \section{Wykrzyknik 25}
-TO DO
+	Przepiszmy układ z wykrzyknika 23.
+	$$
+	\begin{array}{l}
+		\dot{C}_1 = -\frac{i}{\hbar}C_2 W_{12}e^{-i\omega_0 t}\cos(\omega t)\\\\
+		\dot{C}_2 =  -\frac{i}{\hbar}C_1 W_{21}e^{i\omega_0t}\cos(\omega t)
+	\end{array}
+	$$
+	dokonajmy następującego przekształcenia
+	$$
+	\cos(\omega t) e^{-i\omega_0t} = \frac{1}{2}\left( e^{i\omega t}+e^{-i\omega t} \right)e^{-i\omega_0t} = \frac{1}{2}\left(e^{i\omega_{-}t}+e^{-i\omega_{+}t}\right)
+	$$
+	analogicznie
+	$$
+	\cos(\omega t) e^{i\omega_0t} = \frac{1}{2}\left( e^{i\omega t}+e^{-i\omega t} \right)e^{i\omega_0t} = \frac{1}{2}\left(e^{i\omega_{+}t}+e^{-i\omega_{-}t}\right)
+	$$
+	wówczas układ przyjmuje postać
+	$$
+	\left\{\begin{gathered}
+		\dot{C}_1 = -\frac{i}{2\hbar}C_2 W_{12} \left(e^{i\omega_{-}t}+e^{-i\omega_{+}t}\right)\\
+		\dot{C}_2 =  -\frac{i}{2\hbar}C_1 W_{12}^* \left(e^{i\omega_{+}t}+e^{-i\omega_{-}t}\right)
+	\end{gathered} \right.
+	$$
+	kiedy $\omega_0 \sim \omega$, wówczas $\omega_{+}\gg|\omega_{-}|$, stąd $T_- \gg T_+$.\\
+	Będziemy średniować układ po czasie $t\gg T_+$. Zauważmy najpierw, że
+	$$
+	\frac{1}{T_+}\int\limits_t^{t+T_+}\dot{C}_id\tau = \frac{1}{T_+}\left[C_i(T_++t)-C_i(t)\right] = \overline{\dot{C}_i}
+	$$
+	z drugiej strony
+	$$
+	\frac{d}{dt}\frac{1}{T_+}\int\limits_t^{t+T_+}C_id\tau = \frac{1}{T_+}\frac{d}{dt}\left[\int\limits_0^{t+T_+}C_id\tau-\int\limits_0^t C_id\tau\right] = \dot{\overline{C_i}}
+	$$
+	zatem $\dot{\overline{C_i}} = \overline{\dot{C}_i}$.\\
+	Przejdźmy do średniowania prawych stron układu równań(bez współczynników $W_{12}$- są niezależne od czasu), dla pierwszego z nich
+	$$
+	\begin{gathered}
+		\frac{1}{T_+}\int\limits_t^{t+T_+}e^{i\omega_{-}\tau}C_2(\tau)d\tau + \frac{1}{T_+}\int\limits_t^{t+T_+}e^{-i\omega_{+}\tau}C_2(\tau)d\tau =
+		\begin{vmatrix}
+			u = C_2 & v'=e^{i\omega_{-}\tau}\\ \dot{u}=\dot{C}_2 & v = \frac{1}{i\omega_-}e^{i\omega_-\tau}
+		\end{vmatrix} = \\
+		= \left.\frac{C_2(\tau)}{i\omega_-}\right|_t^{t+T_+} - \frac{1}{i\omega_-}\int\limits_t^{t+T_+}e^{i\omega_-\tau}\dot{C}_2(\tau)d\tau - \left.\frac{C_2(\tau)}{i\omega_+}\right|_t^{t+T_+} + \frac{1}{i\omega_+}\int\limits_t^{t+T_+}e^{-i\omega_+\tau}\dot{C}_2(\tau)d\tau \\
+		\bigg\vert \omega_+ \gg \omega_- \bigg\vert = \frac{1}{i\omega_-}\left[\left.C_2(\tau)\right|_t^{t+T_+} -\int\limits_t^{t+T_+}e^{i\omega_-\tau}\dot{C}_2(\tau)d\tau
+		-\frac{\omega_-}{\omega_+}\left(\left.C_2(\tau)\right|_t^{t+T_+}-\int\limits_t^{t+T_+}e^{-i\omega_+\tau}\dot{C}_2(\tau)d\tau\right)\right]
+	\end{gathered}
+	$$
+	zatem możemy zaniedbać drugi człon, czyli
+	$$
+	\frac{1}{T_+}\int\limits_t^{t+T_+}e^{i\omega_{-}\tau}C_2(\tau)d\tau + \frac{1}{T_+}\int\limits_t^{t+T_+}e^{-i\omega_{+}\tau}C_2(\tau)d\tau \approx
+	\frac{1}{T_+}\int\limits_t^{t+T_+}e^{i\omega_{-}\tau}C_2(\tau)d\tau
+	$$
+	z drugiej strony w przedziale $[t,t+T_+]$ eksponenta jest wolnozmienna, zatem możemy ją wyłączyć przed znak całki
+	$$
+	\frac{1}{T_+}\int\limits_t^{t+T_+}e^{i\omega_{-}\tau}C_2(\tau)d\tau \approx e^{i\omega_{-}t}\frac{1}{T_+}\int\limits_t^{t+T_+}C_2(\tau)d\tau  = \overline{C_2}(t)e^{i\omega_{-}t}
+	$$
+	postępując analogicznie dla drugiego równania otrzymujemy
+	$$
+	\left\{\begin{gathered}
+		\dot{\overline{C_1}} = -\frac{i}{2\hbar}W_{12} \overline{C_2}(t)e^{i\omega_{-}t}\\
+		\dot{\overline{C_2}} =  -\frac{i}{2\hbar}W_{12}^* \overline{C_1}(t)e^{-i\omega_{-}t}
+	\end{gathered} \right.
+	$$
 \section{Wykrzyknik 27}
 \textbf{Radzę przeliczyć na własną rękę!}\\
 	Zapis z $\alpha$
@@ -933,5 +992,88 @@ TO DO
  			\bra{nlmsjm_j}\hat{H}_{SO}\ket{nlmsjm_j} = \frac{const}{r^3}\cdot\bra{nlmsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlmsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
  		\end{gathered}
  		$$
+\section{Wykrzyknik 33}
+	 Zsumujmy poprawki
+	 $$
+	 \lambda E^{(1)} = \Delta E_m + \Delta E_{SO} + \Delta E_{DAR}
+	 $$
+	 Rozważmy przypadki
+		 \begin{enumerate}
+		 	\item $l = 0$, wówczas
+		 		\begin{itemize}
+		 			\item[$\bullet$] $\Delta E_m = \frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4}  -\frac{n}{\frac{1}{2}} \right) =\frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4} -2n \right) $
+		 			\item[$\bullet$] $\Delta E_{SO} = 0$
+		 			\item[$\bullet$] $\Delta E_{DAR} = \frac{(Z\alpha)^2}{n}|E_n| $
+		 		\end{itemize}
+	 			co prowadzi do 
+	 			$$
+	 			\begin{gathered}
+		 			\lambda E^{(1)} = \Delta E_m + \Delta E_{SO} + \Delta E_{DAR} = \frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4} -2n \right) + \frac{(Z\alpha)^2}{n}|E_n| = \\
+		 			\frac{(Z\alpha)^2}{n^2}|E_n| \left(\frac{3}{4} -2n + n \right) = \frac{(Z\alpha)^2}{n^2}|E_n| \left(\frac{3}{4} -n  \right) = -\frac{(Z\alpha)^2}{n^2}|E_n| \left(n-\frac{3}{4}   \right)
+	 			\end{gathered}
+	 			$$
+	 		\item $l\neq 0\quad j = l - \frac{1}{2}$, wtedy 
+	 				\begin{itemize}
+	 					\item[$\bullet$] $\Delta E_m = \frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4}  -\frac{n}{l+\frac{1}{2}} \right) $
+	 					\item[$\bullet$] $\Delta E_{SO} = -\frac{(Z\alpha)^2}{n}|E_n|\frac{1}{2l+1}\frac{1}{l} $
+	 					\item[$\bullet$] $\Delta E_{DAR} = 0  $
+	 				\end{itemize}
+ 				co daje
+ 				$$
+ 				\begin{gathered}
+ 					\lambda E^{(1)} = \frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4}  -\frac{n}{l+\frac{1}{2}} \right) - \frac{(Z\alpha)^2}{n}|E_n|\frac{1}{2l+1}\frac{1}{l} =
+ 					-\frac{(Z\alpha)^2}{n^2}|E_n|\left[  \frac{n}{l+\frac{1}{2}}  - \frac{3}{4} + \frac{n}{2l(l+\frac{1}{2})}   \right] =\\
+ 					=-\frac{(Z\alpha)^2}{n^2}|E_n|\left[ \frac{(2l+1)n}{2l(l+\frac{1}{2})} - \frac{3}{4}\right] = -\frac{(Z\alpha)^2}{n^2}|E_n|\left[ \frac{n}{l} - \frac{3}{4}\right] 
+ 					= -\frac{(Z\alpha)^2}{n^2}|E_n|\left[ \frac{n}{j+\frac{1}{2}} - \frac{3}{4}\right] 
+ 				\end{gathered}
+ 				$$
+ 			\item $ l\neq 0\quad j = l + \frac{1}{2}$, wówczas
+ 				\begin{itemize}
+ 					\item[$\bullet$]  $\Delta E_m = \frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4}  -\frac{n}{l+\frac{1}{2}}\right) $
+ 					\item[$\bullet$]  $\Delta E_{SO} = \frac{(Z\alpha)^2}{n}|E_n|\frac{1}{2l+1} \frac{1}{l+1}$
+ 					\item[$\bullet$]  $\Delta E_{DAR} = 0 $
+ 				\end{itemize}
+ 				więc
+ 				$$
+ 				\begin{gathered}
+ 					\lambda E^{(1)} =  \frac{(Z\alpha)^2}{n^2}|E_n|\left(\frac{3}{4}  -\frac{n}{l+\frac{1}{2}}\right) +  \frac{(Z\alpha)^2}{n}|E_n|\frac{1}{2l+1} \frac{1}{l+1} =\\ -\frac{(Z\alpha)^2}{n^2}|E_n| \left[  \frac{n}{l+\frac{1}{2}} - \frac{3}{4} - \frac{n}{(2l+1)(l+1)}  \right] =-\frac{(Z\alpha)^2}{n^2}|E_n|
+ 					  \left[ \frac{2n(l+1) - n}{(2l+1)(l+1)} - \frac{3}{4} \right] = \\
+ 					  =-\frac{(Z\alpha)^2}{n^2}|E_n|\left[ \frac{n(2l+1)}{(2l+1)(l+1)} - \frac{3}{4} \right] = -\frac{(Z\alpha)^2}{n^2}|E_n|\left[ \frac{n}{j+\frac{1}{2}} - \frac{3}{4} \right] 
+ 				\end{gathered}
+ 				$$
+		 \end{enumerate}
+\section{Wykrzyknik 35}
+	Przejście graniczne $\alpha \to 0$ jest równoważne przejściu $\gamma \to 1$. Rozwiązanie 
+	$$
+	\hat{\psi}_{1,1/2,1/2}(\vec{r}) = f(r)
+		\begin{pmatrix}
+			1 \\ 0 \\ i\frac{1-\gamma}{Z\alpha}\cos\theta \\ i\frac{1-\gamma}{Z\alpha}\sin\theta e^{i\varphi}
+		\end{pmatrix}
+	$$
+	Obliczmy jego granicę
+	$$
+	\lim\limits_{\gamma\to 1} f(r)
+	\begin{pmatrix}
+		1 \\ 0 \\ i\frac{1-\gamma}{\sqrt{1-\gamma^2}}\cos\theta \\ i\frac{1-\gamma}{\sqrt{1-\gamma^2}}\sin\theta e^{i\varphi}
+	\end{pmatrix}
+	$$
+	Dla funkcji $f(r)$
+	$$
+	\lim\limits_{\gamma\to 1}f(r) =\frac{1}{\sqrt{4\pi}}\left(\frac{2Z}{a_0}\right)^{3/2} e^{-Zr/a_0}
+	$$
+	osobno policzymy granicę
+	$$
+	\lim\limits_{\gamma\to 1}\frac{1-\gamma}{\sqrt{1-\gamma^2}} = \lim\limits_{\gamma\to 1}\frac{1-\gamma}{\sqrt{1-\gamma}\sqrt{1+\gamma}} = 0
+	$$
+	zatem
+	$$
+	\lim\limits_{\gamma\to 1}\hat{\psi}_{1,1/2,1/2}(\vec{r}) = \frac{1}{\sqrt{4\pi}}\left(\frac{2Z}{a_0}\right)^{3/2} e^{-Zr/a_0}
+	\begin{pmatrix}
+		1 \\ 0 \\ 0 \\ 0
+	\end{pmatrix} = R_{10}(r) Y_{00}\begin{pmatrix}
+	\hat{\varphi}_+ \\ 0 \\ 0
+	\end{pmatrix}
+	$$
+	analogicznie dla $-1/2$.
 \end{document}
 
