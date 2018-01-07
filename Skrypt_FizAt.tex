@@ -506,7 +506,7 @@ $$
 co daje reguły wyboru.
 
 \section{Wykrzyknik 14}
-
+TODO
 
 \section{Wykrzyknik 15}
 	\textbf{Uwaga! Ten wykrzyknik rozwiązuję tak jak było na ćwiczeniach, ponieważ zamiana numeracji prowadzi do zamiany miejsc delt w macierzy, nie widzę sensu, żeby
@@ -890,6 +890,44 @@ Więc ostatecznie
 		$$
 
 \section{Wykrzyknik 24}
+Z równania na $\dot{C}_2$ wylicz $C_1$, zróżniczkuj (pamiętaj o pochodnej
+iloczynu, od t zależy eksponenta oraz c) i wstaw do równania na $\dot{C}_1$. Po
+przerzuceniu wszystkiego na jedną stronę otrzymujemy wynik. 
+Rozwiązywanie rówania:
+zakładamy
+\begin{equation*}
+  C_2 = e^{i\lambda t}
+\end{equation*}
+\begin{equation*}
+  \dot{C_2} = i\lambda e^{i\lambda t}
+\end{equation*}
+\begin{equation*}
+  \ddot{C_2} = -\lambda^2 e^{i\lambda t}
+\end{equation*}
+Równanie charakterystyczne
+\begin{equation*}
+  -\lambda^2 - \omega_{-} \lambda + \frac{abs{W_{12}}^2}{4\hbar} = 0
+\end{equation*}
+Stąd 
+\begin{equation*}
+  \lambda_{1,2} = \frac{-\omega_{-} \pm \omega_{R}}{2}
+\end{equation*}
+Więc otrzymujemy
+\begin{equation*}
+  C_2(t) = A exp\left[ i \frac{-\omega_{-} + \omega_{R}}{2} t\right] + B \left[
+  i \frac{-\omega_{-} - \omega_{R}}{2} t\right] 
+\end{equation*}
+Z warunków początkowych wyliczamy A i B.
+\begin{equation*}
+  C_2(t) = \frac{-W_{12}^*}{\hbar \omega_r}e^{\frac{-i\omega_{-}}{2}t}
+  \sin(\frac{\omega_r}{2}t)
+\end{equation*}
+Prawdopodobieństwo
+\begin{equation*}
+  P_{12} = \abs{C_2(t)}^2 = \frac{\abs{W_{12}}^2}{\hbar^2 \omega_r^2}
+  \sin^2(\frac{\omega_r}{2}t)
+\end{equation*}
+Brakującą energię atom uzyskuje z pomiaru.
 
 \section{Wykrzyknik 25}
 	Przepiszmy układ z wykrzyknika 23.
@@ -952,6 +990,10 @@ Więc ostatecznie
 		\dot{\overline{C_2}} =  -\frac{i}{2\hbar}W_{12}^* \overline{C_1}(t)e^{-i\omega_{-}t}
 	\end{gathered} \right.
 	$$
+
+\section{Wykrzyknik 26}
+Tego nie było
+
 \section{Wykrzyknik 27}
 \textbf{Radzę przeliczyć na własną rękę!}\\
 	Zapis z $\alpha$
@@ -971,8 +1013,135 @@ Więc ostatecznie
 	$$
 	A_{21} \sim 6,26 \cdot10^{8} \frac{1}{s}
 	$$
+
+\section{Wykrzyknik 28}
+Tego też jako tako nie było, obliczenia prowizoryczne:
+U nas stan $k$ to (2,1,1) a stan $j$ to (1,0,0).
+Wyliczamy $d_{12}$
+\begin{equation*}
+  \vec{d}_{jk} = \bra{\phi_{100}} \vec{r}e \ket{\phi_{211}}
+\end{equation*}
+Używając wzorów z komentarzy
+\begin{equation*}
+  \vec{d}_{jk} = \sqrt{\frac{4\pi}{3}} \sum_{m=-1}^1 \hat{\epsilon}_m  
+  \underbrace{\int_0^\infty dr r^2 R_{10}(r) R_{21}(r)}_{I} \int_{4\pi} d\Omega
+  \underbrace{Y_{00}^*}_{\frac{1}{\sqrt{4\pi}}}Y_{11} 
+  Y_{1m}^* 
+\end{equation*}
+\begin{equation*}
+  \vec{d}_{jk} = \frac{e}{\sqrt{3}}\sum_{m=-1}^1 \hat{\epsilon}_m I
+  \underbrace{\int_{4\pi} d\Omega Y_{11} Y_{1m}^*}_{\delta_{11} \delta_{1m}}
+\end{equation*}
+Więc
+\begin{equation*}
+  \abs{\vec{d}_{jk}}^2 = \frac{e^2}{3} I^2 \epsilon_1^2 = \frac{e^2}{3} I^2 
+\end{equation*}
+Z danych widzimy, że 
+\begin{equation*}
+  R_{01} = 2e^{-r}
+\end{equation*}
+\begin{equation*}
+  R_{21} = \frac{\sqrt{6}}{12}e^{-\frac{r}{2}}
+\end{equation*}
+Więc
+\begin{equation*}
+  I = \frac{\sqrt{6}}{6} \int_0^\infty dr r^3 e^{-r} e^{-\frac{r}{2}} = \bigg
+  \vert \int_0^\infty dr r^n e^{-ar} = \frac{n!}{a^{n+1}} \bigg \vert =
+  \frac{16}{81} \sqrt{6}
+\end{equation*}
+\begin{equation*}
+  \abs{\omega_21} = E_1 - E_2 = \bigg \vert E_n = -E \frac{Z^2}{2n^2} \bigg
+  \vert = \abs{- \frac{1}{2} + \frac{1}{8}} = \frac{3}{8}
+\end{equation*}
+
+\subsection{Komentarze}
+\begin{equation*}
+  \vec{d}_{jk} = \bra{\phi_{n_j l_j m_j}} \vec{r}e \ket{ \phi_{n_k l_k m_k}}
+\end{equation*}
+\begin{equation*}
+  \phi_{nlm} = Y_{lm} (\hat{r}) R_{nl} (r)
+\end{equation*}
+\begin{equation*}
+  \vec{r} = r \sqrt{\frac{4\pi}{3}} \sum_{m=-1}^1 \Y_{1m} \epsilon_{m}^*
+\end{equation*}
+
 \section{Wykrzyknik 29}
 	Nie no... wystarczy umieć mnożyć macierze.
+
+\section{Wykrzyknik 30}
+\begin{equation*}
+  \vec{n} \circ \vec{S} = \frac{\hbar}{2} \left[ \begin{pmatrix} 0 & n_1 \\ n_1 &
+      0 \end{pmatrix} + \begin{pmatrix} 0 & -in_2 \\ in_2 & 0 \end{pmatrix}
+    + \begin{pmatrix} n_3 & 0 \\ 0 & -n_3 \end{pmatrix} \right] =
+    \frac{\hbar}{2} \begin{pmatrix} n_3 & n_{-} \\ n{+} & -n_3 \end{pmatrix}
+\end{equation*}
+Gdzie wprowadzono oznaczenia
+\begin{equation*}
+  n_{\pm} = n_1 \pm in_2
+\end{equation*}
+Żeby istniało rozwiązanie wyznacznik musi być niezerowy
+\begin{equation*}
+  \frac{\hbar}{2} \begin{pmatrix} n_3 & n_{-} \\ n{+} & -n_3 \end{pmatrix}
+  \hat{phi} =
+  \frac{\hbar}{2} \hat{\phi}
+\end{equation*}
+Obliczając wyznacznik i przyrównując do zera
+\begin{equation*}
+  -\left( n_3^2 -1) -n_1^2 - n_2^2 = -\vec{n}^2 + 1 = 0
+\end{equation*}
+Dostajemy układ równań
+\begin{equation*}
+  \left\{\begin{gathered}
+      (n_3 - 1)a + n_{-} b = 0\\
+      n_{+} a - (n_3 +1) b = 0
+  \end{gathered}\right.
+\end{equation*}
+Przenosząc
+\begin{equation*}
+  \left\{\begin{gathered}
+      n_{-} b = (1-n_3)a \qquad /\cdot a^*\\
+      n_{+} a =  (n_3 +1) b \qquad /\cdot b^*
+  \end{gathered}\right.
+\end{equation*}
+\begin{equation*}
+  \left\{\begin{gathered}
+      n_{-} b a^* = (1-n_3)\abs{a}^2  \\
+      n_{+} a b^*=  (n_3 +1) \abs{b}^2 
+  \end{gathered}\right.
+\end{equation*}
+Stąd
+\begin{equation*}
+  (1-n_3)\abs{a}^2 =(n_3 +1) \abs{b}^2  
+\end{equation*}
+\begin{equation*}
+  \abs{a}^2 - \abs{a}^2n_3 = \abs{b}^2n_3 + \abs{b}^2
+\end{equation*}
+\begin{equation*}
+  \abs{a}^2 - \abs{b}^2 = n_3 \underbrace{(\abs{a}^2 + \abs{b}^2)}_{=N^2} \quad
+  \Rightarrow \quad n_3 = \frac{\abs{a}^2 - \abs{b}^2 }{N^2}
+\end{equation*}
+\begin{equation*}
+  \left\{\begin{gathered}
+      n_{-} \abs{b}^2 = (1-n_3)ab^*  \\
+      n_{+} \abs{a}^2=  (n_3 +1)a^*b
+  \end{gathered}\right.
+\end{equation*}
+Dodając stronami
+\begin{equation*}
+  n_{-} \abs{b}^2 + n_{+} \abs{a}^2= 2ab
+\end{equation*}
+\begin{equation*}
+  n_{-} N^2 = 2ab \quad \Leftarrow \quad n_{-} \frac{2ab}{N^2}, \quad
+  \frac{2a^*b}{N^2}
+\end{equation*}
+Więc ostatecznie
+\begin{equation*}
+  n_1 = \frac{ab^* + a^*b}{N^2}
+\end{equation*}
+\begin{equation*}
+  n_2 = \frac{ab^* - a^*b}{N^2}
+\end{equation*}
+
 \section{Wykrzyknik 31}
  	Obliczmy najpierw $\hat{S}\circ\hat{L}$ 
  		$$
@@ -992,6 +1161,18 @@ Więc ostatecznie
  			\bra{nlmsjm_j}\hat{H}_{SO}\ket{nlmsjm_j} = \frac{const}{r^3}\cdot\bra{nlmsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlmsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
  		\end{gathered}
  		$$
+
+\section{Wykrzyknik 32}
+
+Z własności komutatorów
+\begin{equation*}
+  [J_p, J_q] = [L_p +S_p, L_q + S_q] = \underbrace{[L_p,
+  L_q]}_{=i\hbar\epsilon_{pqr} L_r} + \underbrace{[L_p, S_q]}_{=0}
+  + \underbrace{[S_p, L_q]}_{=0} + \underbrace{[S_p,
+  S_q]}_{=i\hbar\epsilon_{pqr} S_r} = i\hbar \epsilon_{pqr} (L_r +
+  S_r) = i\hbar \epsilon_{pqr} J_r
+\end{equation*}
+
 \section{Wykrzyknik 33}
 	 Zsumujmy poprawki
 	 $$
