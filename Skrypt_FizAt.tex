@@ -28,12 +28,12 @@
 
 \title{Atomowa Fizyka, czyli każdego dla skrypt} % Title
 
-\author{Debiliusz, Kukiełak} % Author name
+\author{Debiliusz, Kukiełak, Maciek Kalka} % Author name
 
 \date{\today} % Date for the report
 \begin{document}
 	\maketitle
-    \textit{Ten skrypt jest nieszczęśliwym tworem wyobraźni dwóch studentów}. \\
+  \textit{Ten skrypt jest nieszczęśliwym tworem wyobraźni dwóch (i pół) studentów}. \\
     Zawiera tonę suchego humoru, błędów w kodzie, niekompilujących się 
     fragmentów, a co najważniejsze, jeszcze więcej błędów w tekście.\\
     Najważniejszy postulat: \textbf{wszystko brać z dystansem!!}
@@ -506,7 +506,55 @@ $$
 co daje reguły wyboru.
 
 \section{Wykrzyknik 14}
-TODO
+Hamiltonian atomu wodoru(bez spinu) w polu elektro-magnetycznym ma następującą postać:
+$$H_{wod} = \frac{1}{2m}(\hat{\vec{P}}-Q\vec{A})^{2} + Q\varphi$$
+Gdzie $\vec{A}$ - potencjał wektorowy, $\varphi$ - potencjał skalarny. \\
+Dla elektronu w polu magnetycznym i w polu jądra(sytuacja w atomie wodoru w polu B):
+\begin{align*}
+\varphi(\vec{r}) = \frac{ke^2}{r} && \vec{B} = \curl{\vec{A}}
+\end{align*}
+
+Dla stałego w czasie i przestrzeni pola B zachodzi
+\begin{align*}
+\vec{A} = \frac{1}{2} \vec{B} \times \vec{r} && \div{\vec{A}} = 0
+\end{align*}
+
+Wtedy, pracując w cechowaniu Coulomba, gdzie A komutuje z p
+\begin{align*}
+(\hat{\vec{P}}+e\vec{A})^{2} &= \vec{p}^2 +2e\vec{A}\vec{p} e^2\vec{A}^2 \\
+							 &= \vec{p}^2 +2e\vec{A}\vec{p} \\
+							 &= \vec{p}^2 + e(\vec{B} \times \vec{r})\vec{p} \\
+							 &= \vec{p}^2 + e(\vec{p} \times \vec{r})\vec{B} \\
+							 &= \vec{p}^2 + e\vec{L}\vec{B}
+\end{align*}
+
+Ostatecznie hamiltonian atomu wodoru, w stałym polu B, bez spinu wynosi:
+$$\hat{H} = \frac{1}{2m}(\vec{p}^2 + e\hbar \frac{\vec{L}}{\hbar} \vec{B}) - \frac{ke^2}{r}$$
+
+Z rachunku zaburzeń:
+$$H= H_{at} + \lambda\hat{V}$$
+gdzie $H_{at}$ to hamiltonian bez pola, a zaburzenie(operator oddziaływania z polem) jest postaci
+\begin{align*}
+\lambda \hat{V} &= \frac{e}{\hbar} \vec{B} \frac{\vec{L}}{\hbar} \\
+				&= \mu_0  \vec{B} \frac{\vec{L}}{\hbar}
+\end{align*} 
+
+Pracując przy ustalonym n w podprzestrzeni degeneracji $\varphi_{nml}(\vec{r})$ - bazie niezaburzonych wektorów własnych hamiltoninanu $H_{at}$ zdegenerowanej $n^2$ krotnie - możemy obliczyć element macierzowy operatora oddziaływania z polem(zaburzenia). \\
+W ramach stałego w przestrzeni pola B wybieramy jego kierunek. Niech $\vec{B} || OZ \rightarrow \vec{B}(\vec{r}) \equiv B_z$. Dodatkowo dla uproszczenia funkcje falowe w braketach zapisuję tylko przy pomocy indeksów.
+
+\begin{align*}
+V^0_{nm} &= \matrixel{nl'm'}{\lambda \hat{V}}{nlm} \\
+		 &= \mu_0 B_z \matrixel{nl'm'}{\frac{\hat{L}}{\hbar}}{nlm} \\
+		 &= \mu_0 B_z m \braket{nl'm'}{nlm} \\
+		 &= \mu_0 B_z m \delta_{l'l}\delta_{m'm}
+\end{align*}
+
+Zatem operator jest diagonalny, a co za tym idzie baza wektorów własnych hamiltonianu bez pola jest bazą dopasowaną do zaburzenia. Ostatecznie
+$$E_{nm} =  -\frac{E_0}{n^2} + \mu_0 B_z m$$
+A zatem wartość poprawki energetycznej przy stałym w czasie i przestrzeni polu B wynosi
+$$\Delta_E = \mu_0 B_z m $$
+
+Dla stanu $n=3$, $l=0, 1, 2$ dostajemy $m_0 = 0$ - brak zmiany energii, $m_1 = 0, \pm1$ - zmiana egergii o $\Delta_1 = \pm \mu_0 B_z m$ i $m_2 = 0, \pm 1, \pm 2$. Rysunki w zeszycie(mozna wstawic skan)
 
 \section{Wykrzyknik 15}
 	\textbf{Uwaga! Ten wykrzyknik rozwiązuję tak jak było na ćwiczeniach, ponieważ zamiana numeracji prowadzi do zamiany miejsc delt w macierzy, nie widzę sensu, żeby
@@ -643,7 +691,7 @@ Chcąc wyliczyć $\hat{\vec{D}}(\vec{A}')$
 rozpisując pochodną iloczynu (należy pamiętać, że $\chi$ jest zależne od r)
 oraz zwijając eksponenty do $\gamma$ otrzymujemy:
 \begin{equation*}
-  \hat{\vec{D}} (\vec{A} - \nabla \chi) \gamma \Psi = -\gammaq \nabla \chi \Psi
+  \hat{\vec{D}} (\vec{A} - \nabla \chi) \gamma \Psi = -\gamma q \nabla \chi \Psi
   - i\hbar \gamma \nabla \Psi - q\vec{A} \gamma \Psi + q\nabla \chi \gamma \Psi
   = \gamma \hat{\vec{P}} \Psi - \gamma q \vec{A} \Psi = \gamma \hat{\vec{D}}
   (\vec{A}) \Psi
@@ -766,6 +814,7 @@ oraz ($\vec{q} \perp A_0$ ponieważ cechowanie Coulomba)
 Łączymy całki i podstawiamy powyższe równości
 \begin{equation*}
   \bar{\rho} = \frac{1}{4}\omega^2 A_0^2 \left(\epsilon_0 + \frac{1}{\mu_0 c^2}
+  \right)
     = \frac{\epsilon_0}{2} \omega^2 A_0^2 
 \end{equation*}
 
@@ -1062,7 +1111,7 @@ Więc
   \phi_{nlm} = Y_{lm} (\hat{r}) R_{nl} (r)
 \end{equation*}
 \begin{equation*}
-  \vec{r} = r \sqrt{\frac{4\pi}{3}} \sum_{m=-1}^1 \Y_{1m} \epsilon_{m}^*
+  \vec{r} = r \sqrt{\frac{4\pi}{3}} \sum_{m=-1}^1 Y_{1m} \epsilon_{m}^{*}
 \end{equation*}
 
 \section{Wykrzyknik 29}
@@ -1087,7 +1136,7 @@ Gdzie wprowadzono oznaczenia
 \end{equation*}
 Obliczając wyznacznik i przyrównując do zera
 \begin{equation*}
-  -\left( n_3^2 -1) -n_1^2 - n_2^2 = -\vec{n}^2 + 1 = 0
+  -\left( n_3^2 -1\right) -n_1^2 - n_2^2 = -\vec{n}^2 + 1 = 0
 \end{equation*}
 Dostajemy układ równań
 \begin{equation*}
@@ -1223,6 +1272,10 @@ Z własności komutatorów
  				\end{gathered}
  				$$
 		 \end{enumerate}
+
+\section{Wykrzyknik 34}
+ne byo?
+
 \section{Wykrzyknik 35}
 	Przejście graniczne $\alpha \to 0$ jest równoważne przejściu $\gamma \to 1$. Rozwiązanie 
 	$$
@@ -1258,3 +1311,9 @@ Z własności komutatorów
 	analogicznie dla $-1/2$.
 \end{document}
 
+\section{Wykrzyknik 36}
+\section{Wykrzyknik 37}
+\section{Wykrzyknik 38}
+\section{Wykrzyknik 39}
+\section{Wykrzyknik 40}
+\section{Wykrzyknik 41}
