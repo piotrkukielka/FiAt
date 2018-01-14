@@ -66,6 +66,10 @@
 			\end{array}
 		\right.
 		$$
+  gdzie 
+    \begin{equation*}
+      \mu = \frac{m_1 m_2}{m_1 + m_2}
+    \end{equation*}
 	różniczkując dwukrotnie
 		$$
 		\left\{
@@ -92,7 +96,7 @@
 		$$
 			(m_1+m_2)\ddot{\vec{R}} = \vec{0}
 		$$
-	aby otrzymać drugie równanie, podzielmy równanie uprośćmy równania przez masy $m_1$ oraz $m_2$, a następnie odejmijmy je od siebie
+	aby otrzymać drugie równanie, podzielmy równania z otrzymanego układu równań odpowiednio przez masy $m_1$ oraz $m_2$, a następnie odejmijmy je od siebie
 		$$
 			\ddot{\vec{R}} - \frac{\mu}{m_1}\ddot{\vec{r}} - \ddot{\vec{R}} - \frac{\mu}{m_2}\ddot{\vec{r}} = -\frac{\vec{F}}{m_1} - \frac{\vec{F}}{m_2}
 		$$
@@ -150,8 +154,8 @@ $\dot{\vec{L}} = 0$ bierzemy pochodną iloczynu:
 Wiemy, że $V = \frac{D}{r}$ więc $\vec{F} = -grad\vec{V} =
 \frac{-D}{r^2}\hat{r}$. Kontynuując:
 \[
-  \dot{\vec{A}} = \frac{D}{r^2}\hat{r} \times \left( \mu \vec{r} \times
-  \dot{\vec{r}} \right) + \mu D \dot{\hat{r}} = \mu D\hat{r} \times \left(
+  \dot{\vec{A}} = -\frac{D}{r^2}\hat{r} \times \left( \mu \dot{\vec{r}} \times
+  \vec{r} \right) + \mu D \dot{\hat{r}} = \mu D\hat{r} \times \left(
   \hat{r} \times
   \dot{\hat{r}} \right) + \mu D \dot{\hat{r}} = \mu D \left[\underbrace{\left( \hat{r} \circ
     \dot{\hat{r}} \right)}_{=0} \hat{r} - \underbrace{\left( \hat{r} \circ \hat{r}
