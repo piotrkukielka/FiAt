@@ -26,6 +26,9 @@
 \usepackage{mathtools} %adds abs
 \usepackage{enumitem} %adds letters to items in enumerate
 
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}} %package and macro for comments
+
 \title{Atomowa Fizyka, czyli każdego dla skrypt} % Title
 
 \author{Debiliusz, Kukiełak, Maciek Kalka} % Author name
@@ -137,6 +140,8 @@
 	$$
 	\dot{\vec{p}}_{tot} = \dot{\vec{p}}_1 + \dot{\vec{p}}_2 = -\vec{F}+\vec{F} = 0
 	$$
+  \myworries{TODO: wyprowadzenie równań na P, E, L, usunięcie dowodu na to, że
+  sa całkami ruchu (nie całkiem, bo korzystamy z dowodu na to, że L jest całką ruchu w drugim)}
 
 \section{Wykrzyknik 2}
 Wektor Rungego-Lentza
@@ -162,6 +167,8 @@ Wiemy, że $V = \frac{D}{r}$ więc $\vec{F} = -grad\vec{V} =
   \right)}_{=1}
 \dot{\hat{r}} + \dot{\hat{r}} \right] = \vec{0}
 \]
+
+\myworries{TODO: b) znajdź jego kierunek i zwrot}
 
 \subsection{Komentarze}
 Na wykładzie wektor Rungego-Lentza jest od razu pomnożony przez $\mu$.
@@ -199,6 +206,7 @@ oraz należy pamiętać, że $\vec{r} = r\hat{r}$, stąd $\dot{\vec{r}} =
 	P = 4\pi A a^2 - \frac{4\pi a^2 A}{3} = \frac{8\pi}{3}a^2 A = \frac{8\pi}{3}a^2 \frac{k^2 q^2}{c^5 \mu_0} = \frac{8\pi}{3}a^2 \frac{1}{4\pi\varepsilon_0\mu_0}\frac{kq^2}{c^5} =
 	= \frac{2}{3}a^2 \frac{kq^2}{c^3} = \bigg\vert \alpha = \frac{ke^2}{\hbar c}\bigg\vert = \frac{2}{3}\alpha\frac{(q/e)^2\hbar}{c^2}a^2
 	$$
+	\myworries{TODO: Wyprowadzić cały wektor S, podzielić na podpunktu, zmienić równania żeby pokazywały to co on chce, podać wartości liczbowe}
 	\subsection{Komentarze}
 		Użyte wzory:
 		$$
@@ -210,21 +218,6 @@ oraz należy pamiętać, że $\vec{r} = r\hat{r}$, stąd $\dot{\vec{r}} =
 		$$
 
 \section{Wykrzyknik 4}
-Postulaty modelu Bohra:
-\begin{enumerate}
-  \item istnieją stacjonarne orbity - znajdujący się na nich elektron nie
-    wypromieniowuje energii elektromagnetycznej.
-  \item elektron emituje foton przy zmianie orbity $h\nu= \abs*{E_f - E_i}$
-  \item moment pędu przyjmuje dyskretne wartości $ L = n\hbar$
-\end{enumerate}
-Z trzeciego postulatu otrzymujemy $E_n = \frac{-1}{2n^2}E_0$, gdzie $E_0 =
-\frac{k^2 e^4 m_e}{\hbar}$
-i jest to praktycznie jedyny poprawny wynik w tym modelu. 
-
-Całej reszty nie robiliśmy. (?)
-
-
-\section{Wykrzyknik 5}
 		Musimy dokonać zamiany zmiennych w $\hat{H}$ na zmienne środka masy. Obliczając, jak poprzednio
 		$$
 		\left\{
@@ -260,7 +253,7 @@ Całej reszty nie robiliśmy. (?)
 		$$
 		wiemy, że $m_e \sim 10^{-31},\quad m_p \sim 10^{-27}$ [kg], zatem $m_e/m_p ~\sim 10^{-4}$.
 
-\section{Wykrzyknik 6}
+\section{Wykrzyknik 5}
 Wychodząc z równania Schrodingera:
 \[
   \hat{H} \phi(\vec{r})  = E \phi (\vec{r})
@@ -298,7 +291,7 @@ Y}\hat{\vec{L}}^2Y}_{=\lambda} = 0
 \]
 Stąd 
 \[
-  \frac{1}{\hbar^2}\hat{\vec{L}} = \lambda Y \qquad \Rightarrow \qquad \lambda = l(l+1)
+  \frac{1}{\hbar^2}\hat{\vec{L}} Y = \lambda Y \qquad \Rightarrow \qquad \lambda = l(l+1)
 \]
 a dalej
 \[
@@ -309,7 +302,7 @@ po rozpisaniu otrzymujemy
   R'' + \frac{2}{r}R' + \frac{2m}{\hbar^2}\left(\frac{Zke^2}{r} -
   \frac{l(l+1)}{r} \frac{h^2}{2mr} + E \right) R = 0
 \]
-\section{Wykrzyknik 7}
+\section{Wykrzyknik 6}
 Trochę inne wyprowadzenie tego co już robiliśmy, wprowadzamy zmienną $\rho = \frac{r}{a_0},\quad \varepsilon = \frac{E}{E_0}$ oraz nową funkcję
 $f(\rho) = \rho R(a_0 \rho)$, wtedy
 $$
@@ -338,9 +331,10 @@ korzystamy z definicji $a_0$ dostając wynik
 $$
 	f'' + \left(2\varepsilon+\frac{2}{\rho}- \frac{l(l+1)}{\rho^2}\right)f = 0
 $$
+\myworries{TODO:Zmienić "prawie to co robiliśmy" na "to co robiliśmy" czyli zamieniać zmienne tak jak on chce. Generalnie cały do przepisania. Dodać nowy podpunkt}
 
 
-\section{Wykrzyknik 8}
+\section{Wykrzyknik 7}
 $E_n = \frac{-Z^2}{2n^2}E_0$ zależy tylko od jednej liczby kwantowej $n=1, 2,
 ...$. Zatem wartości własne $\hat{H}$ są zdegenerowane.
 Można policzyć stopień tej degeneracji:
@@ -352,7 +346,9 @@ startujemy na $l=0$ więc ilość wyrazów to $n$.
 \[
   \sum^{n-1}_{l=0} (2l+1) = \frac{1+2(n-1) + 1}{2}n = n^2
 \]
-\section{Wykrzyknik 9}
+\myworries{TODO: Dodać nowe podpunkty}
+
+\section{Wykrzyknik 8}
 No to własność harmonik, jeżeli $\hat{r} = (\theta,\varphi)$ to $-\hat{r} = (\pi-\theta,\pi+\varphi)$, zatem
 $$
 	Y_{lm}(-\hat{r}) = Y_{lm}(\pi-\theta,\pi+\varphi) = (-1)^m C_{lm} P^m_l[\cos(\theta-\pi)]e^{im(\pi+\varphi)} = C_{lm} P^m_l[-\cos(\theta)]e^{im\varphi}
@@ -361,12 +357,14 @@ teraz korzystamy z postaci Rodrigueza dla wielomianów Legendre'a dostając
 $$
 	(-1)^l (-1)^m C_{lm} P^m_l[\cos(\theta)]e^{im\varphi} = (-1)^l Y_{lm}(\hat{r})
 $$
+\myworries{TODO: czy tu nie brakuje aby wzorów które używamy? xD}
+
 \subsection{Komentarz}
 	Własności dla wielomanów Legendre
 	$$
 		P_l^m (-x) = (-1)^{l+m} P_l^m(x)
 	$$
-\section{Wykrzyknik 10}
+\section{Wykrzyknik 9}
 Ponieważ 
 \[
   \int_0^\infty dr r^2 R_{nl}^2(r) = 1
@@ -400,7 +398,7 @@ Podpunkty
     Wychodząc z jednostek atomowych $a_0 \approx 0.5 \dot{A}$ $\Rightarrow$
     $\left< r \right>_{10} \approx \frac{3}{4} \dot{A}$
 \end{enumerate}
-\section{Wykrzyknik 11}
+\section{Wykrzyknik 10}
 $$
 	\phi_{210} = R_{21}(r) Y_{10}(\hat{r})
 $$
@@ -433,7 +431,7 @@ $$
 	\frac{1}{24}\int\limits_0^{\infty}r^5 e^{-r} = \frac{5!}{24} = 5 \to r_{21} = 5a_0
 $$
 
-\section{Wykrzyknik 12}
+\section{Wykrzyknik 11}
 Ogólnie:
 \[
   \vec{r} \equiv  r \sqrt{\frac{4\pi}{3}}\sum_{m=-1}^{1} Y_{1m}
@@ -475,7 +473,7 @@ zależy od $m_j$.
 Dowód ostatniej tożsamości pozostawiam jako ćwiczenie dla czytelnika. Proponuję
 rozwiązanie poprzez rozpisanie wszystkich przypadków bądź znalezienie ogólnego
 wzoru na $\epsilon$.
-\section{Wykrzyknik 13}
+\section{Wykrzyknik 12}
 Reguła wyboru dla zmiany $l$
 $$
 	\bra{\varphi_{n_1l_1m_1}}\left[\hat{\vec{L}}^2,[\hat{\vec{L}}^2,\vec{r}]\right]\ket{\varphi_{n_2l_2m_2}} = 2\hbar^2\bra{\varphi_{n_1l_1m_1}}\left\{\hat{\vec{L}}^2,\vec{r}\right\} \ket{\varphi_{n_2l_2m_2}}
@@ -509,7 +507,7 @@ $$
 $$
 co daje reguły wyboru.
 
-\section{Wykrzyknik 14}
+\section{Wykrzyknik 13}
 Hamiltonian atomu wodoru(bez spinu) w polu elektro-magnetycznym ma następującą postać:
 $$H_{wod} = \frac{1}{2m}(\hat{\vec{P}}-Q\vec{A})^{2} + Q\varphi$$
 Gdzie $\vec{A}$ - potencjał wektorowy, $\varphi$ - potencjał skalarny. \\
@@ -560,9 +558,7 @@ $$\Delta_E = \mu_0 B_z m $$
 
 Dla stanu $n=3$, $l=0, 1, 2$ dostajemy $m_0 = 0$ - brak zmiany energii, $m_1 = 0, \pm1$ - zmiana egergii o $\Delta_1 = \pm \mu_0 B_z m$ i $m_2 = 0, \pm 1, \pm 2$. Rysunki w zeszycie(mozna wstawic skan)
 
-\section{Wykrzyknik 15}
-	\textbf{Uwaga! Ten wykrzyknik rozwiązuję tak jak było na ćwiczeniach, ponieważ zamiana numeracji prowadzi do zamiany miejsc delt w macierzy, nie widzę sensu, żeby
-	wprowadzać zamieszanie.}\\
+\section{Wykrzyknik 14}
 	Przyjmujemy jednostki atomowe oraz następującą numerację 
 		$$
 		\begin{array}{lll}
@@ -610,8 +606,7 @@ Dla stanu $n=3$, $l=0, 1, 2$ dostajemy $m_0 = 0$ - brak zmiany energii, $m_1 = 0
 		\Gamma(n) = \int\limits_0^\infty e^{-t}t^{n-1}dt =(n-1)!
 	$$
 
-\section{Wykrzyknik 16}
-\textbf{UWAGA! i tak dalej...}\\
+\section{Wykrzyknik 15}
 Szukamy wartości własnych czyli odejmujemy lambdy na diagonali i przy użyciu
 rozwinięcia Laplace'a względem elementu 44 a następnie 33 otrzymujemy
 \begin{equation*}
@@ -632,7 +627,8 @@ A więc $\phi_{\lambda_1=0} = \phi_3$, $\phi_{\lambda_2=0} = \phi_4$,
 $\phi_{\lambda=\Delta} = \frac{1}{\sqrt{2}}\left( \phi_1 + \phi_2 \right)$,
 $\phi_{\lambda=-\Delta} = \frac{1}{\sqrt{2}}\left( \phi_1 - \phi_2 \right)$
 
-\section{Wykrzyknik 17}
+\myworries{TODO: Dodać: najdź poprawki pierwszego rzędu do energii E2 atomu wodoru}
+\section{Wykrzyknik 16}
 	Transformacja cechowania pola elektromagnetycznego
 	$$
 	\begin{array}{lll}
@@ -666,7 +662,7 @@ $\phi_{\lambda=-\Delta} = \frac{1}{\sqrt{2}}\left( \phi_1 - \phi_2 \right)$
 		\nabla\vec{A} =\partial_x A_x + \partial_y A_y + \partial_z A_z = 0
 	$$
 
-\section{Wykrzyknik 18}
+\section{Wykrzyknik 17}
 Oznaczamy 
 \begin{equation*}
   \hat{D} (\vec{A}) \Psi' = \hat{\vec{P}} - Q \vec{A}
@@ -711,7 +707,7 @@ więc
 \end{equation*}
 Dodatkowo wyliczamy pochodną:
 \begin{equation*}
-  \dot{Psi} = -\frac{i}{\hbar}q \dot{\chi} \gamma\Psi + \gamma\dot{\Psi}
+  \dot{\Psi} = -\frac{i}{\hbar}q \dot{\chi} \gamma\Psi + \gamma\dot{\Psi}
 \end{equation*}
 Wracając do równania Schrodingera
 \begin{equation*}
@@ -719,7 +715,7 @@ Wracając do równania Schrodingera
 }{2m} + q\phi \right] \Psi' = i \hbar -\frac{i}{\hbar}q \dot{\chi} \gamma\Psi +
 \gamma\dot{\Psi}
 \end{equation*}
-Wymnażając i skracając
+Wymnażając i skracając (używamy danych z tematu zadania)
 \begin{equation*}
   \frac{\gamma\hat{D}(\vec{A})}{2m}\Psi + q\phi \gamma \Psi = i\hbar \gamma
   \dot{\Psi}
@@ -731,7 +727,7 @@ Mnożąc z lewej strony przez $\gamma^{-1}$
 \end{equation*}
 Co kończy dowód.
 
-\section{Wykrzyknik 19}
+\section{Wykrzyknik 18}
 	Rozwiązujemy podpunktami
 	\begin{enumerate}
 		\item Wiemy, że $\vec{A}(\vec{r},t) = \vec{A}_0 \sin(\omega t - \vec{k}\cdot\vec{r}+\varphi)$, szukamy zależnośc na parametry tak aby
@@ -785,7 +781,7 @@ Co kończy dowód.
 	\vec{a}\times(\vec{b}\times\vec{c}) = \vec{b}(\vec{a}\circ\vec{c}) - \vec{c}(\vec{a}\circ\vec{b})
 	$$
 
-\section{Wykrzyknik 20}
+\section{Wykrzyknik 19}
 Rozbijając całkę na dwie
 \begin{equation*}
   \bar{\rho} = \frac{1}{T} \int_0^T \rho dt = I_1 + I_2
@@ -822,7 +818,7 @@ oraz ($\vec{q} \perp A_0$ ponieważ cechowanie Coulomba)
     = \frac{\epsilon_0}{2} \omega^2 A_0^2 
 \end{equation*}
 
-\section{Wykrzyknik 21}
+\section{Wykrzyknik 20}
 	Żarówka, dane: $P=100$W, $l = 1$[cm], $r=1$[mm], $\nu=10^{15}$[Hz]
 	\begin{enumerate}
 		\item $\overline{\rho}_\varepsilon  = \frac{1}{T}\int\limits_0^T\frac{1}{2}(\varepsilon_0E^2+\mu_0^{-1}B^2)dt = I_1+I_2$
@@ -846,7 +842,7 @@ oraz ($\vec{q} \perp A_0$ ponieważ cechowanie Coulomba)
 		$$
 	\end{enumerate}
 
-\section{Wykrzyknik 22}
+\section{Wykrzyknik 21}
 \begin{equation*}
   \left[ \hat{H}_{at}, \vec{r} \right] \phi =
   \underbrace{\hat{H}_{at}\vec{r}\phi}_{L} -
@@ -861,18 +857,18 @@ oraz ($\vec{q} \perp A_0$ ponieważ cechowanie Coulomba)
 \end{equation*}
 \begin{equation*}
   P = \vec{r} \hat{H}_{at} \phi = -\vec{r} \frac{\hbar^2 \nabla^2}{2m} \phi -
-  \vec{r} \frac{ke^2}{r}\phi = -r \vec{r} \left( \frac{\hbar^2}{2m}\nabla^2 \phi
+  \vec{r} \frac{ke^2}{r}\phi = -\vec{r} \left( \frac{\hbar^2}{2m}\nabla^2 \phi
   + \frac{ke^2}{r}\phi \right)
 \end{equation*}
 Więc ostatecznie
 \begin{equation*}
   \left[ \hat{H}_{at}, \vec{r} \right] \phi = \frac{-\hbar ^2 }{2m} \left(
     2 \nabla \phi  + \vec{r} \nabla^2 \phi \right) - \frac{ke^2}{r} (\vec{r}
-    \phi) + r \vec{r} \left( \frac{\hbar^2}{2m}\nabla^2 \phi
+    \phi) + \vec{r} \left( \frac{\hbar^2}{2m}\nabla^2 \phi
     + \frac{ke^2}{r}\phi \right)  = \frac{-i\hbar}{m} \hat{\vec{p}}
 \end{equation*}
 
-\section{Wykrzyknik 23}
+\section{Wykrzyknik 22}
 	Hamiltonian układu
 		$$
 		\hat{H} = \hat{H}_{at} + \hat{H}'
@@ -942,7 +938,7 @@ Więc ostatecznie
 		kr \leq \frac{\alpha}{2n} \ll 1
 		$$
 
-\section{Wykrzyknik 24}
+\section{Wykrzyknik 23}
 Z równania na $\dot{C}_2$ wylicz $C_1$, zróżniczkuj (pamiętaj o pochodnej
 iloczynu, od t zależy eksponenta oraz c) i wstaw do równania na $\dot{C}_1$. Po
 przerzuceniu wszystkiego na jedną stronę otrzymujemy wynik. 
@@ -960,6 +956,16 @@ zakładamy
 Równanie charakterystyczne
 \begin{equation*}
   -\lambda^2 - \omega_{-} \lambda + \frac{abs{W_{12}}^2}{4\hbar} = 0
+\end{equation*}
+Warunki początkowe z ćwiczeń
+\begin{equation*}
+	C_1(0) = 0
+\end{equation*}
+\begin{equation*}
+	C_2(0) = 0
+\end{equation*}
+\begin{equation*}
+	\dot{C_2}(0) = \frac{-i}{2\hbar}W_{12}^*
 \end{equation*}
 Stąd 
 \begin{equation*}
@@ -982,8 +988,8 @@ Prawdopodobieństwo
 \end{equation*}
 Brakującą energię atom uzyskuje z pomiaru.
 
-\section{Wykrzyknik 25}
-	Przepiszmy układ z wykrzyknika 23.
+\section{Wykrzyknik 24}
+	Przepiszmy układ z wykrzyknika 22.
 	$$
 	\begin{array}{l}
 		\dot{C}_1 = -\frac{i}{\hbar}C_2 W_{12}e^{-i\omega_0 t}\cos(\omega t)\\\\
@@ -1044,8 +1050,8 @@ Brakującą energię atom uzyskuje z pomiaru.
 	\end{gathered} \right.
 	$$
 
-\section{Wykrzyknik 26}
-Tego nie było
+\section{Wykrzyknik 25}
+
 
 \section{Wykrzyknik 27}
 \textbf{Radzę przeliczyć na własną rękę!}\\
