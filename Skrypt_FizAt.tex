@@ -1051,9 +1051,65 @@ Brakującą energię atom uzyskuje z pomiaru.
 	$$
 
 \section{Wykrzyknik 25}
+Średniujemy po polaryzacjach
+\begin{equation*}
+  \langle p_{ab} \rangle_\lambda = \frac{1}{2} \sum_{\lambda=1}^{2} p_{ab}\left(
+  \hat{e}_\lambda \right) = \pi \frac{\rho\left(w\right)}{\epsilon_0 \hbar^2}
+  \frac{1}{2}\sum_{\lambda=1}^2 \abs{\hat{e}_\lambda \circ \vec{d}_{12}}^2
+\end{equation*}
+Niech (gdzie $\vec{W} = \vec{u} + i\vec{v}$ jest dowolnym wektorem w zespolonej przestrzeni trójwymiarowej)
+\begin{equation*}
+  S\left( \hat{q} \right) = \frac{1}{2}\sum_{\lambda=1}^2 \abs{\hat{e}_\lambda
+  \circ \vec{W}}^2 = \frac{1}{2} \sum_{\lambda=1}^2 \abs{\vec{W}_\lambda}^2 =
+  \frac{1}{2} \underbrace{\sum_{\lambda=1}^3 \abs{\vec{W_\lambda}}}_{\abs{\vec{W}}^2} - \frac{1}{2}\abs{\vec{W}
+    \circ \hat{q}} = \frac{1}{2} \left( \abs{\vec{W}}^2 - \abs{\vec{W} \circ
+	  \hat{q}} \right) 
+\end{equation*}
+Średniowanie po kierunkach
+\begin{equation*}
+  \langle S(\hat{q}) \rangle_{\hat{q}} = \frac{1}{4\pi} \int_{4\pi} d\Omega
+  _{\hat{q}}
+  S(\hat{q}) = \underbrace{\frac{1}{4\pi} \int_{4\pi}
+  \frac{\abs{\vec{W}}}{2}d\Omega_{\hat{q}}}_{I_1}
+  - \underbrace{\frac{1}{4\pi} \int_{4\pi} d\Omega_{\hat{q}}
+  \frac{\abs{\vec{W} \circ \hat{q}}^2}{2}}_{I_2}
+\end{equation*}
+\begin{equation*}
+  I_1 = \frac{\abs{\vec{W}}^2}{2}
+\end{equation*}
+\begin{equation*}
+  I_2 = \frac{1}{8\pi} \int_{4\pi} d\Omega_{\hat{q}} \left( \abs{\vec{u} \circ
+  \hat{q} }^2 + \abs{\vec{v} \circ \hat{q} }^2 \right) = \bigg \vert Oz
+  \parallel \vec{u}, \vec{v} \bigg \vert = \frac{1}{8\pi} \left(  2\pi u^2 \int_{-1}^1
+  dzz^2 + 2\pi v^2 \int_{-1}^1
+dzz^2 \right) = \frac{1}{8\pi} \frac{4}{3}\pi \left( \vec{u}^2 + \vec{v}^2 \right)
+\end{equation*}
+wracając
+\begin{equation*}
+  \langle S(\hat{q}) \rangle_{\hat{q}} = I_1 + I_2 = \frac{\abs{\vec{W}^2}}{2} -
+  \frac{1}{8\pi} \frac{4}{3}\pi \left( \vec{u}^2 + \vec{v}^2 \right) =
+  \frac{1}{3} \abs{\vec{W}}^2
+\end{equation*}
+Więc
+\begin{equation*}
+  \langle p_{ab} \rangle_{\lambda, \hat{q}} = \frac{\pi}{3}
+  \frac{\rho(\omega)}{\epsilon_0 \hbar^2} \abs{\vec{d}_{12}} 
+\end{equation*}
+korzystamy z równości
+\begin{equation*}
+  \rho(\omega) d\omega = \rho(\nu)d\nu
+\end{equation*}
+\begin{equation*}
+  \rho(\omega) = \rho(\nu) \frac{d\nu}{d\omega} = \frac{\rho(\nu)}{2\pi}
+\end{equation*}
+oraz uzywamy stałej elektrostatycznej
+\begin{equation*}
+  \langle p_{ab} \rangle_{\lambda, \hat{q}} = \frac{2}{3} \pi
+\frac{k\rho(\nu)}{\hbar^2} \abs{\vec{d}_{12}}
+\end{equation*}
 
 
-\section{Wykrzyknik 27}
+\section{Wykrzyknik 26}
 \textbf{Radzę przeliczyć na własną rękę!}\\
 	Zapis z $\alpha$
 	$$
@@ -1073,7 +1129,7 @@ Brakującą energię atom uzyskuje z pomiaru.
 	A_{21} \sim 6,26 \cdot10^{8} \frac{1}{s}
 	$$
 
-\section{Wykrzyknik 28}
+\section{Wykrzyknik 27}
 Tego też jako tako nie było, obliczenia prowizoryczne:
 U nas stan $k$ to (2,1,1) a stan $j$ to (1,0,0).
 Wyliczamy $d_{12}$
@@ -1124,10 +1180,11 @@ Więc
   \vec{r} = r \sqrt{\frac{4\pi}{3}} \sum_{m=-1}^1 Y_{1m} \epsilon_{m}^{*}
 \end{equation*}
 
-\section{Wykrzyknik 29}
+\section{Wykrzyknik 28}
 	Nie no... wystarczy umieć mnożyć macierze.
+  Plus te dowody są na wikipedii.
 
-\section{Wykrzyknik 30}
+\section{Wykrzyknik 29}
 \begin{equation*}
   \vec{n} \circ \vec{S} = \frac{\hbar}{2} \left[ \begin{pmatrix} 0 & n_1 \\ n_1 &
       0 \end{pmatrix} + \begin{pmatrix} 0 & -in_2 \\ in_2 & 0 \end{pmatrix}
@@ -1201,7 +1258,13 @@ Więc ostatecznie
   n_2 = \frac{ab^* - a^*b}{N^2}
 \end{equation*}
 
+\section{Wykrzyknik 30}
+\myworries{TODO: cały}
+
 \section{Wykrzyknik 31}
+\myworries{TODO: cały}
+
+\section{Wykrzyknik 32}
  	Obliczmy najpierw $\hat{S}\circ\hat{L}$ 
  		$$
  		\hat{J}= \hat{L}+\hat{S} \implies \hat{J}^2 = \hat{L}^2+\hat{S}^2 + 2\hat{S}\circ\hat{L}
@@ -1220,17 +1283,7 @@ Więc ostatecznie
  			\bra{nlmsjm_j}\hat{H}_{SO}\ket{nlmsjm_j} = \frac{const}{r^3}\cdot\bra{nlmsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlmsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
  		\end{gathered}
  		$$
-
-\section{Wykrzyknik 32}
-
-Z własności komutatorów
-\begin{equation*}
-  [J_p, J_q] = [L_p +S_p, L_q + S_q] = \underbrace{[L_p,
-  L_q]}_{=i\hbar\epsilon_{pqr} L_r} + \underbrace{[L_p, S_q]}_{=0}
-  + \underbrace{[S_p, L_q]}_{=0} + \underbrace{[S_p,
-  S_q]}_{=i\hbar\epsilon_{pqr} S_r} = i\hbar \epsilon_{pqr} (L_r +
-  S_r) = i\hbar \epsilon_{pqr} J_r
-\end{equation*}
+\myworries{TODO: dopisać jawną}
 
 \section{Wykrzyknik 33}
 	 Zsumujmy poprawki
@@ -1284,7 +1337,7 @@ Z własności komutatorów
 		 \end{enumerate}
 
 \section{Wykrzyknik 34}
-ne byo?
+ne byo? bendziea
 
 \section{Wykrzyknik 35}
 	Przejście graniczne $\alpha \to 0$ jest równoważne przejściu $\gamma \to 1$. Rozwiązanie 
@@ -1319,11 +1372,17 @@ ne byo?
 	\end{pmatrix}
 	$$
 	analogicznie dla $-1/2$.
-\end{document}
 
 \section{Wykrzyknik 36}
+\myworries{TODO}
 \section{Wykrzyknik 37}
+\myworries{TODO}
 \section{Wykrzyknik 38}
+\myworries{TODO}
 \section{Wykrzyknik 39}
+\myworries{TODO}
 \section{Wykrzyknik 40}
+\myworries{TODO}
 \section{Wykrzyknik 41}
+\myworries{TODO}
+\end{document}
