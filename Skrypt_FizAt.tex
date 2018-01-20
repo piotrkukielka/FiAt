@@ -1351,7 +1351,33 @@ $$
 gdzie $\lambda = C B = \frac{g_s\mu_B B}{\hbar} = \omega_L$
 Otrzymaliśmy zatem wzór na precesję Larmora.
 \section{Wykrzyknik 31}
-\myworries{TODO: cały}
+$$
+\begin{gathered}
+\left[\hat{L}_i,\hat{H}_D\right] = \left[\hat{L}_i,c\vec{\alpha}\circ\hat{\vec{p}}\right] + \left[\hat{L}_i,mc^2\beta \right] = c\left[\hat{L}_i,\vec{\alpha}\circ\hat{\vec{p}}\right] = c\left[\hat{L}_i, \alpha_j\hat{p}_j\right] = c\alpha_j \left[\hat{L}_i,\hat{p}_j\right] = \\
+= c\alpha_j\left[\epsilon_{ivk}r_v\hat{p}_k,\hat{p}_j\right] = c\alpha_j\epsilon_{ivk}\left[r_v \hat{p}_k,\hat{p}_j\right] =  c\alpha_j\epsilon_{ivk}\left(r_v \hat{p}_k\hat{p}_j-r_v\hat{p}_j \hat{p}_k +i\hbar \delta_{vj}\hat{p}_k\right) = i\hbar c\alpha_j \epsilon_{ijk} \hat{p}_k = \\
+= i\hbar c (\vec{\alpha}\times\hat{\vec{p}})_i
+\end{gathered}
+$$
+$$
+\begin{gathered}
+\left[\hat{S}_i,\hat{H}_D\right] = \left[\hat{S}_i,c\vec{\alpha}\circ\hat{\vec{p}}\right] + \left[\hat{S}_i,mc^2\beta \right] = c\left[\hat{S}_i,\alpha_j\hat{p}_j\right] = c\frac{\hbar}{2}\left[\sigma_i ,\alpha_j\hat{p}_j\right] = c\frac{\hbar}{2}\hat{p}_j \left[\sigma_i,\alpha_j\right] = \\  = c\frac{\hbar}{2}\hat{p}_j \left( 
+\begin{bmatrix}
+\hat{0} & \sigma_i\sigma_j\\
+\sigma_i\sigma_j & \hat{0}
+\end{bmatrix} - \begin{bmatrix}
+\hat{0} & \sigma_j\sigma_i\\
+\sigma_j\sigma_i & \hat{0}
+\end{bmatrix}
+ \right) =c\frac{\hbar}{2}\hat{p}_j \bigg(\begin{bmatrix}
+ \hat{0} & i\epsilon_{ijk}\sigma_k + \delta_{ij}\\
+ i\epsilon_{ijk}\sigma_k + \delta_{ij} & \hat{0}
+ \end{bmatrix} - \\ - \begin{bmatrix}
+ \hat{0} & i\epsilon_{jik}\sigma_k + \delta_{ji}\\
+ i\epsilon_{jik}\sigma_k + \delta_{ij} & \hat{0}
+ \end{bmatrix} \bigg) =c\frac{\hbar}{2}\hat{p}_j 2i\alpha_k \epsilon_{ijk} = -i\hbar c(\vec{\alpha}\times\hat{\vec{p}})_i
+\end{gathered}
+$$
+co już w bardzo prosty sposób prowadzi do szukanych komutatorów.
 
 \section{Wykrzyknik 32}
  	Obliczmy najpierw $\hat{S}\circ\hat{L}$ 
@@ -1369,10 +1395,15 @@ Otrzymaliśmy zatem wzór na precesję Larmora.
  	wtedy element macierzowy
  		$$
  		\begin{gathered}
- 			\bra{nlmsjm_j}\hat{H}_{SO}\ket{nlmsjm_j} = \frac{const}{r^3}\cdot\bra{nlmsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlmsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
+ 			\bra{nlsjm_j}\hat{H}_{SO}\ket{nlsjm_j} = \frac{const}{r^3}\cdot\bra{nlsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
  		\end{gathered}
  		$$
-\myworries{TODO: dopisać jawną}
+Jawna postać spinorbitali sferycznych Pauliego
+$$
+\hat{\varphi}_{nlsjm_j}^{0} = R_{nl}\begin{bmatrix}
+\hat{\Omega}_{lm_lsjm_j} \\ 
+\mathbb{O} \end{bmatrix} =  R_{nl}\sum\limits_{m_l,m_s}C^{j,m_j}_{m_l,m_s} Y_{l,m_l}\begin{bmatrix}\hat{\varphi}_{s,m_s} \\ \mathbb{O} \end{bmatrix}
+$$
 
 \section{Wykrzyknik 33}
 	 Zsumujmy poprawki
@@ -1461,6 +1492,46 @@ ne byo? bendziea
 	\end{pmatrix}
 	$$
 	analogicznie dla $-1/2$.
+\section{Wykrzyknik 36}
+Zaczynamy od Hamiltonianu
+$$
+\hat{H}=\hat{H}_{at} + \hat{H}_{rel} + \hat{H}_B
+$$
+przy czym zakładając, że $OZ||\vec{B}$, możemy zapisać
+$$
+\hat{H}_B = \frac{\mu_B}{\hbar}B\left(\hat{L}_z + 2\hat{S}_z\right)
+$$
+dla anomalnego efektu Zeemanna $<H_{rel}> \gg <H_B>$, przy słabym $\vec{B}$. Wtedy 
+obydwie poprawki traktujemy jako zaburzenia. Funkcje niezaburzone są rozwiązaniami równania Schrodingera, dostosawnymi do sumy poprawek,czyli
+$$
+\hat{H}_{at}\hat{\varphi}^{(0)} = E^{(0)}\hat{\varphi}^{(0)}
+$$
+macierz poprawek relatywistycznych jest diagonalna w bazie spinorbitali sferycznych Pauliego, zatem trzeba pokazać, że
+$$
+\bra{nl'j'm_j'}\hat{H}_B\ket{nljm_j}
+$$
+jest diagonalna, zatem trzeba obliczyć element macierzowy $\hat{H}_B = \frac{\mu_B B}{\hbar}\left(\hat{J}_z+\hat{S}_z \right)$. Obliczymy jednak jedynie element na diagonalii, gdyż to jest nam potrzebne do poprawki
+$$
+\begin{gathered}
+\bra{nljm_j}\frac{\mu_B B}{\hbar}\left(\hat{J}_z+\hat{S}_z \right)\ket{nljm_j} = \mu_Bm_j B + \frac{\mu_B B}{\hbar}\underbrace{\bra{nlsjm_j}\hat{S}_z\ket{nlsjm_j}}_{x}
+\end{gathered}
+$$
+tutaj korzystamy z podanej tożsamości wstawiając za operator $\hat{V}$ operator 
+$\hat{\vec{S}}$. Potrzebujemy obliczyć
+$$
+\bra{nlsjm_j}\left[\hat{\vec{J}}^2,\left(\hat{\vec{J}}^2,\hat{S}_3\right)\right]\ket{nlsjm_j} = 
+\bra{nlsjm_j}\left[ 2\hbar^2\left\{\hat{\vec{J}}^2,\hat{S}_3  \right\}-4\hbar^2\left(\hat{\vec{S}}\circ\hat{\vec{J}}\right)\hat{J}_3\right] \ket{nlsjm_j} 
+$$
+tożsamość, która przydaje się podczas obliczeń $\hat{\vec{L}}^2 = \hat{\vec{J}}^2+\hat{\vec{S}}^2- 2 \hat{\vec{J}}\circ\hat{\vec{S}}$.\\
+\textbf{obliczenie lewej i prawej strony nie jest trudne, jest żmudne, zatem tego nie piszę}.
+Po przekształceniach otrzymuje się wynik
+$$
+ x =\frac{m_j \hbar}{2j(j+1)}\left[j(j+1)+\frac{3}{4}-l(l+1)\right]
+$$
+co ostatecznie daje nam poprawkę na energię związaną z polem magnetycznym
+$$
+E = \mu_B m_j B \left[ 1+\frac{j(j+1) +s(s+1)-l(l+1)}{2j(j+1)}  \right]
+$$
 \section{Wykrzyknik 37}
 Ogólnie czynnik Landego
 $$
@@ -1479,7 +1550,6 @@ $$
 	$$
 	j = |l-1/2|,\quad j=l+1/2
 	$$
-
 	\begin{enumerate}
 		\item $ j = |l-1/2|$, wówczas, przyjmijmy, że $|l-1/2|=l-1/2$, wtedy
 		$$
@@ -1495,18 +1565,4 @@ $$
 \item Próbowałem narysować kredką na monitorze, ale się nie udało.
 \item $\Delta E = \mu_B B m_j g_{lj}$. W szczególności dla stanu $np_{1/2}$ otrzymujemy $g = 2/3$ oraz $\Delta E = \pm 1/3 \mu_B B$. Dla stanu $np_{3/2}$ dostajemy $g = 4/3$ oraz $\Delta E = \pm 2\mu_B B$ lub $\Delta E = \pm 2/3 \mu_B B$.
 \end{enumerate}
-\end{document}
-
-\section{Wykrzyknik 36}
-\myworries{TODO}
-\section{Wykrzyknik 37}
-\myworries{TODO}
-\section{Wykrzyknik 38}
-\myworries{TODO}
-\section{Wykrzyknik 39}
-\myworries{TODO}
-\section{Wykrzyknik 40}
-\myworries{TODO}
-\section{Wykrzyknik 41}
-\myworries{TODO}
 \end{document}
