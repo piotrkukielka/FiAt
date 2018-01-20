@@ -346,8 +346,24 @@ startujemy na $l=0$ więc ilość wyrazów to $n$.
 \[
   \sum^{n-1}_{l=0} (2l+1) = \frac{1+2(n-1) + 1}{2}n = n^2
 \]
-\myworries{TODO: Dodać nowe podpunkty}
-
+Pełna funkcja falowa atomu H-podobnego
+$$
+\psi(\vec{r})_{n,l,m_l} = R_{n,l}(r) Y_{l,m_l}(\hat{r})
+$$
+przy czym liczby kwantowe zmieniają się następująco
+$$
+\begin{gathered}
+n = 1,2,\cdots\\
+l = 0,1,\cdots,n-1\\
+m_l = -l,-l+1,\cdots,0,\dots,l-1,l
+\end{gathered}
+$$
+Korzystając z faktu unormowania
+$$
+\begin{gathered}
+1=\bra{\psi_{n,l,m_l}}\ket{\psi_{n,l,m_l}} = \int dr\, r^2 R_{n,l}R_{n,l} \int d\Omega Y^*_{l,m_l}Y_{l,m_l} =  \int\, r^2 dr R_{n,l}R_{n,l} \delta_{l,l}\delta_{m_l,m_l} = \int dr \, r^2 R_{n,l}^2
+\end{gathered}
+$$
 \section{Wykrzyknik 8}
 No to własność harmonik, jeżeli $\hat{r} = (\theta,\varphi)$ to $-\hat{r} = (\pi-\theta,\pi+\varphi)$, zatem
 $$
@@ -691,11 +707,8 @@ Chcąc wyliczyć $\hat{\vec{D}}(\vec{A}')$
 rozpisując pochodną iloczynu (należy pamiętać, że $\chi$ jest zależne od r)
 oraz zwijając eksponenty do $\gamma$ otrzymujemy:
 \begin{equation*}
-<<<<<<< HEAD
   \hat{\vec{D}} (\vec{A} - \nabla \chi) \gamma \Psi = -\gamma \nabla \chi \Psi
-=======
   \hat{\vec{D}} (\vec{A} - \nabla \chi) \gamma \Psi = -\gamma q \nabla \chi \Psi
->>>>>>> a3759634324a3acaa02e50d9b9307440237fcac6
   - i\hbar \gamma \nabla \Psi - q\vec{A} \gamma \Psi + q\nabla \chi \gamma \Psi
   = \gamma \hat{\vec{P}} \Psi - \gamma q \vec{A} \Psi = \gamma \hat{\vec{D}}
   (\vec{A}) \Psi
@@ -818,35 +831,33 @@ oraz ($\vec{q} \perp A_0$ ponieważ cechowanie Coulomba)
 Łączymy całki i podstawiamy powyższe równości
 \begin{equation*}
   \bar{\rho} = \frac{1}{4}\omega^2 A_0^2 \left(\epsilon_0 + \frac{1}{\mu_0 c^2}
-<<<<<<< HEAD
     = \frac{\epsilon_0}{2} \omega^2 A_0^2\right) 
 \end{equation*}
-\section{Wykrzyknik 21}
-
 \section{Wykrzyknik 20}
->>>>>>> a3759634324a3acaa02e50d9b9307440237fcac6
-	Żarówka, dane: $P=100$W, $l = 1$[cm], $r=1$[mm], $\nu=10^{15}$[Hz]
-	\begin{enumerate}
-		\item $\overline{\rho}_\varepsilon  = \frac{1}{T}\int\limits_0^T\frac{1}{2}(\varepsilon_0E^2+\mu_0^{-1}B^2)dt = I_1+I_2$
-		.Obliczamy kolejno
-		$$
-		\begin{gathered}
-			I_1 = \frac{1}{2T}\int\limits_0^T\varepsilon_0E^2 dt = \frac{\varepsilon_0}{2T}\int\limits_0^TA_0^2\omega^2\sin^2(\omega t -\vec{k}\vec{r})dt = \\\\
-				= \frac{E_0^2}{2T}\int\limits_0^T\sin^2(\omega t -\vec{k}\vec{r})dt = \big\vert \omega t - \varphi = u\big\vert = \\\\
-				= \frac{E_0^2}{2T\omega}\int\limits_{-\varphi}^{\omega T-\varphi}\sin^2u du = \frac{\varepsilon_0 E_0^2}{4} \\\\\\
-			I_2 = \frac{1}{2T\mu_0}\int\limits_0^T B^2 dt = \frac{B_0^2}{2T\mu_0}\int\limits_0^T\sin^2(\omega t -\varphi)dt = \frac{B_0^2}{4\mu_0}
-		\end{gathered}
-		$$
-		wtedy 
-		$$
-			\overline{\rho}_\varepsilon = \frac{\varepsilon_0 E_0^2}{4}+ \frac{B_0^2}{4\mu_0} = \frac{1}{4}\omega^2A_0^2(\varepsilon_0+\frac{1}{\mu_0c^2})=\frac{\varepsilon_0\omega^2A_0^2}{2}
-		$$
-		\item $\frac{P}{2\pi r l c} = \overline{\rho}_\varepsilon = \frac{\varepsilon_0\omega^2A_0^2}{2}$
-		Zatem dla naszej żarówki 
-		$$
-			A_0 = \frac{1}{\omega}\sqrt{\frac{P}{\pi r l c \varepsilon_0}} \sim \big\vert \hbar \omega \sim 10eV\big\vert \sim 10^{-12}
-		$$
-	\end{enumerate}
+Żarówka, dane: $P=100$W, $l = 1$[cm], $r=1$[mm], $\nu=10^{15}$[Hz]
+\begin{enumerate}
+	\item $\overline{\rho}_\varepsilon  = \frac{1}{T}\int\limits_0^T\frac{1}{2}(\varepsilon_0E^2+\mu_0^{-1}B^2)dt = I_1+I_2$
+	.Obliczamy kolejno
+	$$
+	\begin{gathered}
+	I_1 = \frac{1}{2T}\int\limits_0^T\varepsilon_0E^2 dt = \frac{\varepsilon_0}{2T}\int\limits_0^TA_0^2\omega^2\sin^2(\omega t -\vec{k}\vec{r})dt = \\\\
+	= \frac{E_0^2}{2T}\int\limits_0^T\sin^2(\omega t -\vec{k}\vec{r})dt = \big\vert \omega t - \varphi = u\big\vert = \\\\
+	= \frac{E_0^2}{2T\omega}\int\limits_{-\varphi}^{\omega T-\varphi}\sin^2u du = \frac{\varepsilon_0 E_0^2}{4} \\\\\\
+	I_2 = \frac{1}{2T\mu_0}\int\limits_0^T B^2 dt = \frac{B_0^2}{2T\mu_0}\int\limits_0^T\sin^2(\omega t -\varphi)dt = \frac{B_0^2}{4\mu_0}
+	\end{gathered}
+	$$
+	wtedy 
+	$$
+	\overline{\rho}_\varepsilon = \frac{\varepsilon_0 E_0^2}{4}+ \frac{B_0^2}{4\mu_0} = \frac{1}{4}\omega^2A_0^2(\varepsilon_0+\frac{1}{\mu_0c^2})=\frac{\varepsilon_0\omega^2A_0^2}{2}
+	$$
+	\item $\frac{P}{2\pi r l c} = \overline{\rho}_\varepsilon = \frac{\varepsilon_0\omega^2A_0^2}{2}$
+	Zatem dla naszej żarówki 
+	$$
+	A_0 = \frac{1}{\omega}\sqrt{\frac{P}{\pi r l c \varepsilon_0}} \sim \big\vert \hbar \omega \sim 10eV\big\vert \sim 10^{-12}
+	$$
+\end{enumerate}
+
+
 
 \section{Wykrzyknik 21}
 \begin{equation*}
@@ -1269,8 +1280,77 @@ Więc ostatecznie
 \end{equation*}
 
 \section{Wykrzyknik 30}
-\myworries{TODO: cały}
-
+Równanie Pauliego 
+$$
+\left\{\left[\frac{\left(\hat{\vec{P}}+e\vec{A}\right)^2}{2m}-e\Phi\right]\mathbb{I}-\hat{\vec{\mu}}_s\circ\vec{B} \right\}\hat{\varphi} = i\hbar\partial_t\hat{\varphi}
+$$
+Pomijając składniki rzędu $\frac{1}{m}$ 
+$$
+\left(-e\Phi - \hat{\vec{\mu}}_s\circ\vec{B}\right)\hat{\varphi} = i\hbar\partial_t\varphi
+$$
+ograniczając się jedynie do spinu
+$$
+\left(i\hbar\partial_t+\hat{\vec{\mu}}_s\circ\vec{B}\right)\hat{\varphi} = 0
+$$
+definujemy wektor $\vec{w}(t)$, który jest rozwiązaniem powyższego równania, jako
+$$
+\vec{w}(t) = \bra{\hat{\varphi}(t)}\hat{\vec{S}}\ket{\hat{\varphi}(t)}
+$$
+wówczas
+$$
+\dot{\vec{w}}(t) = \bra{\dot{\hat{\varphi}}}\hat{\vec{S}}\ket{\hat{\varphi}}+\bra{\hat{\varphi}}\hat{\vec{S}}\ket{\dot{\hat{\varphi}}}
+$$
+z naszego równania wyliczamy wartość pochodnej po czasie z funkcji $\varphi$
+$$
+=\bra{\frac{i}{\hbar}\hat{\vec{\mu}}_s\circ\vec{B}\hat{\varphi}}\hat{\vec{S}}\ket{\varphi} + \bra{\hat{\varphi}}\hat{\vec{S}}\ket{\frac{i}{\hbar}\hat{\vec{\mu}}_s\circ\vec{B}}
+$$
+teraz wprowadzamy jawną postać operatora $\hat{\vec{\mu}}_s= -g_s\mu_B\frac{\hat{\vec{S}}}{\hbar}$, oznaczamy przez $ia=\frac{1}{i\hbar}g_s\mu_B$ oraz zauważamy, że 
+$$
+\hat{\vec{S}} = \hat{S}_ie_i,\quad\quad \vec{S}\circ\vec{B} = S_jB_j
+$$
+wówczas
+$$
+=-ia\bra{\hat{S}_jB_j\hat{\varphi}}\hat{S}_i e_i\ket{\hat{\varphi}}+ia\bra{\hat{\varphi}}\hat{S}_ie_i\ket{\hat{S}_jB_j\hat{\varphi}} = ia\bra{\varphi}\left[\hat{\vec{S}},\hat{\vec{S}}\circ\vec{B}\right]\ket{\varphi} =ia e_i B_j \bra{\varphi}\left[S_i,S_j\right]\ket{\varphi}
+$$
+co, po skorzystaniu z reguły komutacji operatorów spinu, prowadzi do
+$$
+-\hbar a \epsilon_{ijk} B_j e_i w_k(t) =-\hbar a \vec{B}\times\vec{w}(t)
+$$
+Przechodzimy do rozwiązania równania, zauważmy, że
+$$
+\dot{\vec{w}}(t)= \frac{g_s\mu_B}{\hbar}\vec{B}\times\vec{w} \quad\quad \bigg| \circ \vec{w}
+$$
+po prawej stronie otrzymujemy $0$, zatem
+$$
+\frac{d}{dt}\vec{w}^2 = 0
+$$
+skoro długość wektora pozostaje stała w czasie, możemy wnioskować, że jest to ruch po okręgu, zatem
+$$
+\vec{w} = \vec{w}_{||} + \vec{w}_{\perp}
+$$
+otrzymujemy równanie
+$$
+\dot{\vec{w}} = C\vec{B}\times\vec{w}_\perp
+$$
+przyjmijmy ponadto, że $0Z||\vec{B}$
+$$
+\left\{
+\begin{split}
+\dot{w}_x &= -Cw_yB\\
+\dot{w}_y &= Cw_xB
+\end{split}
+\right.
+$$
+układ równań możemy przekształcić do równania rzędu drugiego
+$$
+\ddot{w}_y+C^2B^2w_y = 0
+$$
+rozwiązanie takiego równania 
+$$
+A\cos(\lambda t) + B\sin(\lambda t)
+$$
+gdzie $\lambda = C B = \frac{g_s\mu_B B}{\hbar} = \omega_L$
+Otrzymaliśmy zatem wzór na precesję Larmora.
 \section{Wykrzyknik 31}
 \myworries{TODO: cały}
 
