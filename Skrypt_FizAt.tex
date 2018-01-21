@@ -1360,7 +1360,9 @@ $$
 $$
 $$
 \begin{gathered}
-\left[\hat{S}_i,\hat{H}_D\right] = \left[\hat{S}_i,c\vec{\alpha}\circ\hat{\vec{p}}\right] + \left[\hat{S}_i,mc^2\beta \right] = c\left[\hat{S}_i,\alpha_j\hat{p}_j\right] = c\frac{\hbar}{2}\left[\sigma_i ,\alpha_j\hat{p}_j\right] = c\frac{\hbar}{2}\hat{p}_j \left[\sigma_i,\alpha_j\right] = \\  = c\frac{\hbar}{2}\hat{p}_j \left( 
+\left[\hat{S}_i,\hat{H}_D\right] = \left[\hat{S}_i,c\vec{\alpha}\circ\hat{\vec{p}}\right] + \left[\hat{S}_i,mc^2\beta \right] = c\left[\hat{S}_i,\alpha_j\hat{p}_j\right] = c\frac{\hbar}{2}\left[
+\begin{bmatrix} \sigma_i & \hat{0} \\ \hat{0} &\sigma_i \end{bmatrix}  ,\alpha_j\hat{p}_j\right]
+ = c\frac{\hbar}{2}\hat{p}_j \left[\begin{bmatrix} \sigma_i & \hat{0} \\ \hat{0} &\sigma_i \end{bmatrix},\alpha_j\right] = \\  = c\frac{\hbar}{2}\hat{p}_j \left( 
 \begin{bmatrix}
 \hat{0} & \sigma_i\sigma_j\\
 \sigma_i\sigma_j & \hat{0}
