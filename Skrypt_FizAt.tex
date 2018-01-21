@@ -140,7 +140,26 @@
 	$$
 	\dot{\vec{p}}_{tot} = \dot{\vec{p}}_1 + \dot{\vec{p}}_2 = -\vec{F}+\vec{F} = 0
 	$$
-  \myworries{TODO: wyprowadzenie równań na P, E, L}
+DODATEK: WYPROWADZENIE L
+(trzykropek - to samo ale dla ''2'')
+\begin{equation*}
+  \begin{split}
+    L_{tot} &= \vec{r}_1 \times \vec{p}_1 + \vec{r}_2 \times \vec{p}_2 = \left(
+    \vec{R} - \frac{\mu}{m_1}\vec{r} \right) \times m_1 \left(
+  \dot{\vec{R}} - \frac{\mu}{m_1} \hat{\vec{r}} \right) + \cdots = \\
+  &= m_1 \left[ \vec{r} \times \dot{\vec{r}} - \frac{\mu}{m_1} \vec{r} \times
+    \dot{\vec{r}} - \frac{\mu}{m_1} \vec{r} \times \dot{\vec{r}}  -
+  \frac{\mu}{m_1} \frac{\mu^2}{m_1^2}\vec{r} \times \dot{\vec{r}} \right]
+  + \\
+  &+ m_2 \left[ \vec{r} \times \dot{\vec{r}} - \frac{\mu}{m_2} \vec{r} \times
+    \dot{\vec{r}} - \frac{\mu}{m_2} \vec{r} \times \dot{\vec{r}}  -
+  \frac{\mu}{m_2} \frac{\mu^2}{m_2^2}\vec{r} \times \dot{\vec{r}} \right]
+  =\\ &= \left(m_1 + m_2\right) \vec{R} \times \dot{\vec{R}} + \mu^2 \vec{r}
+  \times \dot{\vec{r}} \left( \frac{m_1}{m_1^2} + \frac{m_2}{m_2^2} \right) = \left(
+    m_1 + m_2 \right) \vec{R} \times \dot{\vec{R}} + \mu \vec{r} \times
+    \dot{\vec{r}}
+  \end{split}
+\end{equation*}
 
 \section{Wykrzyknik 2}
 Wektor Rungego-Lentza
@@ -167,7 +186,7 @@ Wiemy, że $V = \frac{D}{r}$ więc $\vec{F} = -grad\vec{V} =
 \dot{\hat{r}} + \dot{\hat{r}} \right] = \vec{0}
 \]
 
-\myworries{TODO: b) znajdź jego kierunek i zwrot}
+\myworries{TODO: \@b) znajdź jego kierunek i zwrot (dużo rysunów, pierwszy wykład i pierwsze ćwiczenia)}
 
 \subsection{Komentarze}
 Na wykładzie wektor Rungego-Lentza jest od razu pomnożony przez $\mu$.
@@ -181,13 +200,28 @@ oraz należy pamiętać, że $\vec{r} = r\hat{r}$, stąd $\dot{\vec{r}} =
 \dot{r}\hat{r} + r\dot{\hat{r}}$.
 
 \section{Wykrzyknik 3}
+  DODATEK:
+  Wyprowadzenie ogolne $\vec{S}$. Z danych zadania możemy otrzymać
+  \begin{equation*}
+    \vec{S} = \frac{1}{\mu} \left[ \underbrace{\vec{E}_c \times
+        \vec{B}_c}_{~\frac{1}{r^4}} + \underbrace{\vec{E}_c \times
+        \vec{B}_p}_{~\frac{1}{r^3}} + \underbrace{\vec{E}_p \times
+        \vec{B}_c}_{~\frac{1}{r^3}} + \underbrace{\vec{E}_p \times
+    \vec{B}_p}_{~\frac{1}{r^2}} \right] = \vec{S}_p + \cdots
+  \end{equation*}
+  Koniec dodatku\\
 	We wstępie nie mamy podanego wektora $\vec{S}_p$, zatem chyba trzeba go wyprowadzić, więc
 	$$
 	\vec{S}_p = \frac{1}{\mu_0}\vec{E}_p \times \vec{B}_p = \frac{1}{\mu_0 c}\vec{E}_p \cross(\hat{R}\cross\vec{E}_p)
 	$$
 	ciągnąc równość dalej
 	$$
-	= \frac{1}{\mu_0 c}\left(\hat{R}E_p^2 - \vec{E}_p\underbrace{(\hat{R}\circ\vec{E}_p)}_{=0}\right) = \bigg\vert E_p^2 = \frac{k^2 q^2}{c^4 R^2} \left[\hat{R}(\hat{R}\times \vec{a})\right]^2 = \frac{k^2 q^2}{c^4 R^2} |\hat{R}\times\vec{a}|^2\bigg\vert = \frac{1}{\mu_0 c}\frac{k^2q^2}{c^4 R^2}\left[a^2-(\hat{R}\circ\vec{a})^2\right]\hat{R}
+	= \frac{1}{\mu_0 c}\left(\hat{R}E_p^2 -
+  \vec{E}_p\underbrace{(\hat{R}\circ\vec{E}_p)}_{=0}\right) = \bigg\vert E_p^2 =
+  \frac{k^2 q^2}{c^4 R^2} \left[\hat{R}(\hat{R}\times \vec{a})\right]^2 =
+  \frac{k^2 q^2}{c^4 R^2} |\hat{R}\times\vec{a}|^2\bigg\vert =
+  \underbrace{\frac{1}{\mu_0 c}\frac{k^2q^2}{c^4
+  R^2}}_{~\frac{const}{R^2}}\left[a^2-(\hat{R}\circ\vec{a})^2\right]\hat{R}
 	$$
 	co kończy wyprowadzenie $\vec{S}_p$. Wtedy obliczamy $P$
 	$$
@@ -205,7 +239,7 @@ oraz należy pamiętać, że $\vec{r} = r\hat{r}$, stąd $\dot{\vec{r}} =
 	P = 4\pi A a^2 - \frac{4\pi a^2 A}{3} = \frac{8\pi}{3}a^2 A = \frac{8\pi}{3}a^2 \frac{k^2 q^2}{c^5 \mu_0} = \frac{8\pi}{3}a^2 \frac{1}{4\pi\varepsilon_0\mu_0}\frac{kq^2}{c^5} =
 	= \frac{2}{3}a^2 \frac{kq^2}{c^3} = \bigg\vert \alpha = \frac{ke^2}{\hbar c}\bigg\vert = \frac{2}{3}\alpha\frac{(q/e)^2\hbar}{c^2}a^2
 	$$
-	\myworries{TODO: Wyprowadzić cały wektor S, podzielić na podpunktu, zmienić równania żeby pokazywały to co on chce, podać wartości liczbowe}
+	\myworries{TODO: podać wartości liczbowe}
 	\subsection{Komentarze}
 		Użyte wzory:
 		$$
@@ -372,7 +406,6 @@ teraz korzystamy z postaci Rodrigueza dla wielomianów Legendre'a dostając
 $$
 	(-1)^l (-1)^m C_{lm} P^m_l[\cos(\theta)]e^{im\varphi} = (-1)^l Y_{lm}(\hat{r})
 $$
-\myworries{TODO: czy tu nie brakuje aby wzorów które używamy? xD}
 
 \subsection{Komentarz}
 	Własności dla wielomanów Legendre
