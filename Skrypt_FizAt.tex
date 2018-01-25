@@ -1,3 +1,4 @@
+% !TeX spellcheck = de_DE
 \documentclass[a4paper,12pt]{article}
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
@@ -1008,7 +1009,7 @@ zakładamy
 \end{equation*}
 Równanie charakterystyczne
 \begin{equation*}
-  -\lambda^2 - \omega_{-} \lambda + \frac{abs{W_{12}}^2}{4\hbar} = 0
+  -\lambda^2 - \omega_{-} \lambda + \frac{\abs{W_{12}}^2}{4\hbar} = 0
 \end{equation*}
 Warunki początkowe z ćwiczeń
 \begin{equation*}
@@ -1218,7 +1219,7 @@ Więc
   \frac{16}{81} \sqrt{6}
 \end{equation*}
 \begin{equation*}
-  \abs{\omega_21} = E_1 - E_2 = \bigg \vert E_n = -E \frac{Z^2}{2n^2} \bigg
+  \abs{\omega_{21}} = E_1 - E_2 = \bigg \vert E_n = -E \frac{Z^2}{2n^2} \bigg
   \vert = \abs{- \frac{1}{2} + \frac{1}{8}} = \frac{3}{8}
 \end{equation*}
 
@@ -1364,7 +1365,7 @@ otrzymujemy równanie
 $$
 \dot{\vec{w}} = C\vec{B}\times\vec{w}_\perp
 $$
-przyjmijmy ponadto, że $0Z||\vec{B}$
+przyjmijmy ponadto, że $OZ||\vec{B}$
 $$
 \left\{
 \begin{split}
@@ -1430,7 +1431,7 @@ co już w bardzo prosty sposób prowadzi do szukanych komutatorów.
  	wtedy element macierzowy
  		$$
  		\begin{gathered}
- 			\bra{nlsjm_j}\hat{H}_{SO}\ket{nlsjm_j} = \frac{const}{r^3}\cdot\bra{nlsjm_j}\hat{J}^2-\hat{L}^2-\hat{S}^2\ket{nlsjm_j} = \\ =\frac{const}{r^3}\cdot\left[j(j+1) - l(l+1)-s(s+1)\right] = \bigg\vert l = 0\bigg\vert = \frac{const}{r^3}\cdot\left[j(j+1) -s(s+1)\right] = \bigg\vert j = |l\pm s| \bigg\vert = 0
+ 			\bra{nlsjm_j}\hat{H}_{SO}\ket{nlsjm_j} = const\cdot\bra{nlsjm_j}\frac{1}{r^3}\left(\hat{J}^2-\hat{L}^2-\hat{S}^2\right)\ket{nlsjm_j} = \\ =const\cdot\bra{nlsjm_j}\frac{1}{r^3}\left[j(j+1) - l(l+1)-s(s+1)\right]\ket{nlsjm_j} = \bigg\vert l = 0\bigg\vert = \\ = const\cdot\bra{nlsjm_j}\frac{1}{r^3}\left[j(j+1) -s(s+1)\right]\ket{nlsjm_j} = \bigg\vert j = |l\pm s| \bigg\vert = 0
  		\end{gathered}
  		$$
 Jawna postać spinorbitali sferycznych Pauliego
@@ -1492,7 +1493,7 @@ $$
 		 \end{enumerate}
 
 \section{Wykrzyknik 34}
-ne byo? bendziea
+MISSING :V
 
 \section{Wykrzyknik 35}
 	Przejście graniczne $\alpha \to 0$ jest równoważne przejściu $\gamma \to 1$. Rozwiązanie 
@@ -1599,5 +1600,149 @@ $$
 	\end{enumerate}
 \item Próbowałem narysować kredką na monitorze, ale się nie udało.
 \item $\Delta E = \mu_B B m_j g_{lj}$. W szczególności dla stanu $np_{1/2}$ otrzymujemy $g = 2/3$ oraz $\Delta E = \pm 1/3 \mu_B B$. Dla stanu $np_{3/2}$ dostajemy $g = 4/3$ oraz $\Delta E = \pm 2\mu_B B$ lub $\Delta E = \pm 2/3 \mu_B B$.
+\end{enumerate}
+\section{Wykrzyknik 38}
+Zamiast elementu macierzowego obliczymy problem własny i wykażemy w ten sposób, że wartość własna to suma energii, zatem
+$$
+\hat{H}_0 \ket{\hat{\phi}_\gamma} = \sum_i^Z \hat{h}_i \ket{\hat{\phi}_\gamma} = \sum_i^Z \hat{h}_i\sum_p(-1)^{Inv(p)}\frac{1}{\sqrt{Z!}}\hat{P}\left[ \varphi_1(\vec{r}_1)\otimes\varphi_2(\vec{r}_2)\otimes\cdots\otimes\varphi_Z(\vec{r}_Z)  \right]
+$$
+zamieniamy trochę kolejność wyrazów
+$$
+\sum_i^Z\frac{1}{\sqrt{Z!}}\sum_p (-1)^{Inv(p)}\hat{h}_i\hat{P}\left[ \varphi_1(\vec{r}_1)\otimes\cdots\otimes\varphi_Z(\vec{r}_Z) \right]
+$$
+należy zauważyć, że operator $\hat{h}_i$ oraz $\hat{P}$ komutują ze sobą (ze względu na to, że hamiltonian jest sumą poszczególnych operatorów), wówczas
+$$
+\sum_i^Z\frac{1}{\sqrt{Z!}}\sum_p (-1)^{Inv(p)}\hat{P}\hat{h}_i\left[ \varphi_1(\vec{r}_1)\otimes\cdots\otimes\varphi_Z(\vec{r}_Z) \right]
+$$
+Zgodnie z własnościami iloczynu tensorowego $i-$ty hamiltonian 'odnajduje' jedynie $i-$ tą funkcję $\varphi_i$, zatem
+$$
+\sum_i^Z\frac{1}{\sqrt{Z!}}\sum_p (-1)^{Inv(p)}\hat{P}E_i\left[ \varphi_1(\vec{r}_1)\otimes\cdots\otimes\varphi_Z(\vec{r}_Z) \right]
+$$
+składając wszystko do całości
+$$
+\hat{H}_0 \ket{\hat{\phi}_\gamma} = 
+\sum_i^ZE_i\frac{1}{\sqrt{Z!}}\sum_p (-1)^{Inv(p)}\hat{P}\left[ \varphi_1(\vec{r}_1)\otimes\cdots\otimes\varphi_Z(\vec{r}_Z) \right] = \sum_i^ZE_i\ket{\hat{\phi}_\gamma}
+$$
+co kończy dowód.
+\section{Wykrzyknik 39}
+\begin{itemize}
+	\item $(np,n'p)$, no to składamy
+	$$
+	\begin{gathered}
+	L = 1\oplus1 = 0,1,2 \\
+	S = 1/2 \oplus 1/2 = 0,1
+	\end{gathered}
+	$$
+	teraz tworzymy wszystkie możliwe kombinacje
+	$$
+	{}^1S,\,\,{}^3S,\,\,{}^1P,\,\,{}^3P,\,\,{}^1D,\,\,{}^3D
+	$$
+	\item $(np,n'd)$, again
+	$$
+	\begin{gathered}
+	L = 1\oplus2 = 1,2,3 \\
+	S = 1/2 \oplus 1/2 = 0,1
+	\end{gathered}
+	$$
+	teraz tworzymy wszystkie możliwe kombinacje
+	$$
+	{}^1P,\,\,{}^3P,\,\,{}^1D,\,\,{}^3D,\,\,{}^1F,\,\,{}^3F
+	$$
+	\item $np^2$, robimy tabelę zawierającą nieujemne wartości rzutów $M_L, M_S$
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}\hline
+			$M_L/M_S$ & 1 & 0 \\ \hline 
+			2 & - & $1^+ 1^-$\\\hline 
+			1 & $1^+ 0^+$ & $1^+0^-;1^-0^+$\\\hline 
+			0 & $1^+-1^+$ & $1^+-1^-;1^--1^+;0^+0^-$ \\\hline
+		\end{tabular}
+	\end{table}
+Dlaczego jedynie wartości nieujemne? Bo tyle wystarczy do znalezienia termów. Schemat postępowania
+\begin{enumerate}
+	\item zaczynamy od samej góry, widzimy, że wartość $M_L=2$ może odpowiadać momentom orbitalnym skierowanym w górę, zatem mamy do czynienia z termem $D$, jednakże, zgodnie z tabelą, widzimy, że nie ma możliwości ułożenia dwóch spinów w tym samym kierunku (zakaz Pauliego), zatem bierzemy drugą opcję, gdzie $M_S=0$, co odpowiada wypadkowemu spinowi równemu $S=0$, zatem $2S+1=1$, czyli pierwszy term jaki znaleźliśmy to ${}^1D$, skreślamy tę kombinację liczb.
+	\item jak już mamy pierwszy term, to przystępujemy do skreślania. Jak wiemy, $L=2$ odpowiadają rzuty od $-2$ do $2$, zatem z każdego wiersza i kolumny skreślamy TYLKO PO JEDNEJ(ale dowolnej!) kombinacji liczb, które mogą również odpowiadać temu termowi, przykładowo, mając $L=2$ oraz $S=0$, możemy otrzymać kombinacje rzutów np. $M_L=1,M_S=0$, ale również
+	 $M_L=0,M_S=0$. Widzimy, że w tabeli dla $M_L=1,M_S=0$ mamy kombinację liczb $1^+0^-;1^-0^+$, ale jak mówiłem skreślamy jedno, dowolne, tak samo dla $M_L=0,M_S=0$ mamy, aż 3 kombinacje, $1^+-1^-;1^--1^+;0^+0^-$, ale skreślamy jedną.\\
+	 Czyli tabelka po pierwszym skreślaniu dla $\textcolor{red}{{}^1D}$ wygląda następująco
+	 \begin{table}[H]
+	 	\centering
+	 	\begin{tabular}{|c|c|c|}\hline
+	 		$M_L/M_S$ & 1 & 0 \\ \hline 
+	 		2 & - & $\textcolor{red}{1^+ 1^-}$\\\hline 
+	 		1 & $1^+ 0^+$ & $\textcolor{red}{1^+0^-};1^-0^+$\\\hline 
+	 		0 & $1^+-1^+$ & $\textcolor{red}{1^+-1^-};1^--1^+;0^+0^-$ \\\hline
+	 	\end{tabular}
+	 \end{table}
+	 \item Zatem skończyliśmy część dla termu ${}^1D$, teraz idąc od lewej od góry, znajdujemy pierwszą nieskreśloną kombinację, dla niej odczytujemy wartości $M_L = 1, M_S = 1$, co odpowiada termowi ${}^3P$. Skreślamy
+	 \item dla ${}^3P$ możemy mieć $M_L=1,M_S=1$ ale również $M_L=1,M_S=0$, ponadto $M_L=0,M_S=1$ lub $M_L=0,M_S=0$. Tak jak wcześniej, skreślamy po jednym! Czyli dla $\textcolor{green}{{}^3P}$
+	 \begin{table}[H]
+	 	\centering
+	 	\begin{tabular}{|c|c|c|}\hline
+	 		$M_L/M_S$ & 1 & 0 \\ \hline 
+	 		2 & - & $\textcolor{red}{1^+ 1^-}$\\\hline 
+	 		1 & $\textcolor{green}{1^+ 0^+}$ & $\textcolor{red}{1^+0^-};\textcolor{green}{1^-0^+}$\\\hline 
+	 		0 & $\textcolor{green}{1^+-1^+}$ & $\textcolor{red}{1^+-1^-};\textcolor{green}{1^--1^+};0^+0^-$ \\\hline
+	 	\end{tabular}
+	 \end{table}
+ 	\item no i odczytujemy ostatnią możliwość, czyli term ${}^1S$.
+\end{enumerate}
+	\item $nd^2$, czyli zabawa w to samo, tylko z większą ilością rzutów \textbf{stanów z zakazu Pauliego nie zapisuję!}
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}\hline
+			$M_L/M_S$ & 1 & 0 \\ \hline 
+			4 & - & $2^+ 2^-$\\\hline 
+			3 & $2^+ 1^+$ & $2^+1^-;2^-1^+$\\\hline 
+			2 & $2^+0^+$ & $2^+0^-;2^-0^+;1^+1^-$ \\\hline
+			1 & $ 2^+ -1^+;1^+0^+$&$2^+-1^-;2^--1^+;1^+0^-;1^-0^+ $ \\\hline
+			0 &$2^+-2^+;1^+-1^+$ & $2^+-2^-;2^--2^+;1^+-1^-;1^--1^+;0^+0^-$\\\hline
+		\end{tabular}
+	\end{table}
+	otrzymane termy to
+	$$
+	\textcolor{red}{{}^1G},\,\,\textcolor{green}{{}^3F},\,\,\textcolor{blue}{{}^1D},\,\,\textcolor{gray}{{}^3P},\,\, {}^1 S
+	$$
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}\hline
+			$M_L/M_S$ & 1 & 0 \\ \hline 
+			4 & - & $	\textcolor{red}{2^+ 2^-}$\\\hline 
+			3 & $\textcolor{green}{2^+ 1^+}$ & $	\textcolor{red}{2^+1^-};\textcolor{green}{2^-1^+}$\\\hline 
+			2 & $\textcolor{green}{2^+0^+}$ & $	\textcolor{red}{2^+0^-};\textcolor{green}{2^-0^+};\textcolor{blue}{1^+1^-}$ \\\hline
+			1 & $ \textcolor{green}{2^+ -1^+};\textcolor{gray}{1^+0^+}$&$	\textcolor{red}{2^+-1^-};\textcolor{green}{2^--1^+};\textcolor{blue}{1^+0^-};\textcolor{gray}{1^-0^+ }$ \\\hline
+			0 &$\textcolor{green}{2^+-2^+};\textcolor{gray}{1^+-1^+}$ & $	\textcolor{red}{2^+-2^-};\textcolor{green}{2^--2^+};\textcolor{blue}{1^+-1^-};\textcolor{gray}{1^--1^+};0^+0^-$\\\hline
+		\end{tabular}
+	\end{table}
+\end{itemize}
+\section{Wykrzyknik 40}
+Dla termu ${}^3P$ mamy następujące wartości liczby $J$
+$$
+J =1\oplus1 = 0,1,2
+$$
+bogatsi o tę wiedzę widzimy, że dostaniemy 3 wartości poprawki
+$$
+\begin{gathered}
+\Delta_{J=0}E_{SO} = \frac{\xi}{2}\left[0*1-1*(1+1)-1*(1+1)\right] = -2\xi \\
+\Delta_{J=1}E_{S0} = \frac{\xi}{2}\left[1*(1+1)-1*(1+1)-1*(1+1) \right] = -\xi\\
+\Delta_{J=2}E_{S0} = \frac{\xi}{2}\left[2*(2+1)-1*(1+1)-1*(1+1)  \right] =0
+\end{gathered}
+$$
+no i widzimy, że dla $\xi<0$ najwyżej położony będzie term ${}^3P_0$, najniżej $ {}^3P_2$
+\section{Wykrzyknik 41}
+\begin{enumerate}
+	\item Reguła Landego
+	$$
+	\begin{gathered}
+	\Delta E_{SO}(J)-\Delta E_{SO}(J-1) = \frac{\xi}{2} \left\{ \left[ J*(J+1)-L(L+1)-S(S+1)\right]\right.-\\
+	\left.\left[(J-1)*J-L(L+1)-S(S+1) \right]\right\} = \frac{\xi}{2}\left[J^2+J-J^2+J\right] = \xi J
+	\end{gathered}
+	$$
+	\item Multiplety
+	\begin{enumerate}
+		\item Prosty $\xi>0 \leftrightarrow $podpowłoki zapełnione mniej, niż w połowie
+		
+		\item Odwrócony $\xi<0 \leftrightarrow$ podpowłoki zapełnione więcej, niż w połowie
+	
+	\end{enumerate}
 \end{enumerate}
 \end{document}
